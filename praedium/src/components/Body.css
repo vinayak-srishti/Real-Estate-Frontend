@@ -1,0 +1,17 @@
+.c-item{
+height: 480px;
+}
+/* .c-img{
+height: 100%;
+filter: brightness(0.6);
+object-fit: cover;
+} */
+.carousel-images img{
+    height: 500px;
+filter: brightness(0.6);
+/* object-fit: contain; */
+
+}
+.carousel{
+    margin-top: 58px;
+}
