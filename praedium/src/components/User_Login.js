@@ -1,39 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../components/User_login.css'
+import Img from './Images/lock.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function User_Login() {
+    const [vals,setvals]=useState({Username:'',Password:''})
+
+    const Change=(data)=>{
+        console.log(vals)
+        console.log(data)
+        setvals({...vals,[data.target.name]:data.target.value})
+    }
+    const Submit=(vals_add)=>{
+        vals_add.preventDefault()
+        axios.post('https://jsonplaceholder.typicode.com/posts',vals)
+        .then(res=>{
+            console.log(res)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
     return (
         <div>
-            <div className='img'>
-                <div className='back'>
-                    <div class="mx-auto p-2" style={{ width: '400px' }}>
-                        <div className='box'>
-                            <div className='group'>
-                                <label>UserName</label>
-                                <input type='text' class="form-control" style={{ marginBottom: '6px', width: '250px' }}></input>
-                                <label>Password</label>
-                                <input type='password' class="form-control" style={{ width: '250px' }}></input>
-                                <button style={{ marginLeft: '50px', marginTop: '20px', width: '150px' }} class="btn btn-primary">sumbit</button>
-                                <hr></hr>
-                                <p style={{ textAlign: 'center' }}>New User <Link> register?</Link></p>
-                                <hr></hr>
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <Link class="text-decoration-none"> Termscondition</Link>
+            <form onSubmit={Submit}>
+                <div className='continer' style={{ marginLeft: '20px', marginTop: '150px' }}>
+                    <div className='row justify-content-center' >
+                        <div className=' col-sm-6 col-md-5'>
+                            <div className='row g-2 shadow-lg p-3 mb-5 bg-body-tertiary rounded-5' style={{ marginTop: '20px' }} >
+                                <h1 className='tex'>User Sign in</h1>
+                                <div className='col-md-12'>
+
+                                    <input className='form-control' placeholder='Username' type='text' onChange={Change} name='Username' values={vals.Username}></input>
+                                </div>
+                                <div className='col-md-12'>
+
+                                    <input className='form-control' placeholder='Password' type='password' onChange={Change} name='Password' values={vals.Password}></input>
+                                </div>
+                                <div className='col-md-`12 d-flex justify-content-end'>
+                                    <a href=''>Forgot Password</a>
+                                </div>
+                                <div className='col-md-12 text-center g-4'>
+                                    <button className=' btn btn-primary col-6'>< img src={Img} style={{ width: '20px', height: '19px', marginBottom: '5px' }} /> Login </button>
+                                </div>
+                                <div className='col-md-12'>
+                                    <hr></hr>
+                                </div>
+                                <div className='col-md-12 text-center ' >
+                                    <label>New user</label> <a href='reg' >register?</a>
+                                </div>
+                                <div className='col-md-12'>
+                                    <hr></hr>
+                                </div>
+                                <div className='col-12'>
+                                    <div className='row justify-content-evenly'>
+                                        <div className='col-auto me-auto'>
+                                            <a href='#'>Termscondition</a>
                                         </div>
-                                        <div class="col">
-                                            <Link class="text-decoration-none"> ContactUs</Link>
+                                        <div className='col-auto'>
+                                            <a href='#' >Contactus</a>
                                         </div>
                                     </div>
                                 </div>
-                                <hr></hr>
+                                <div className='col-lg-12'>
+                                    <hr></hr>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
