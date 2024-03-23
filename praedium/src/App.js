@@ -11,8 +11,9 @@ import Owlcarsol from './components/Owlcarsol.js';
 import Regis from './components/Regis.js';
 import Seller_login from './components/Seller_login.js';
 import Seller_reg from './Seller_reg.js';
-import Admin from './Admin.js';
-import Aboutus from './Aboutus.js';
+import Adminn from './components/Adminn.js';
+
+
 
 
 function App() {
@@ -29,8 +30,9 @@ function App() {
         <Route path='/Foot' element={<Foot/>}/>
         <Route path='/Body' element={<Body/>}/>
         <Route path='/Owl' element={<Owlcarsol/>}/>
-        <Route path='/admin' element={<Admin/>}/>
-        <Route path='/about' element={<Aboutus/>}/>
+        <Route path='/admin' element={<Adminn/>}/>
+        
+        
       </Routes>
     </div>
     </BrowserRouter>
