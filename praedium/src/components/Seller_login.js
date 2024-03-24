@@ -56,10 +56,10 @@ function Seller_login() {
                                     <div className='col-12'>
                                         <div className='row justify-content-evenly'>
                                             <div className='col-auto me-auto'>
-                                                <a href='#'>Termscondition</a>
+                                                <a href='/terms'>Termscondition</a>
                                             </div>
                                             <div className='col-auto'>
-                                                <a href='#' >Contactus</a>
+                                                <a href='/contact' >Contactus</a>
                                             </div>
                                         </div>
                                     </div>

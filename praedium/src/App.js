@@ -10,8 +10,13 @@ import Body from './components/Body.js'
 import Owlcarsol from './components/Owlcarsol.js';
 import Regis from './components/Regis.js';
 import Seller_login from './components/Seller_login.js';
-import Seller_reg from './Seller_reg.js';
+import Seller_reg from './components/Seller_reg.js';
 import Adminn from './components/Adminn.js';
+import About from './components/About.js';
+import Contactus from './components/Contactus.js';
+import Privacypolicy from './components/Privacypolicy.js';
+import Terms from './components/Terms.js';
+import Feedback from './components/Feedback.js';
 
 
 
@@ -31,6 +36,11 @@ function App() {
         <Route path='/Body' element={<Body/>}/>
         <Route path='/Owl' element={<Owlcarsol/>}/>
         <Route path='/admin' element={<Adminn/>}/>
+        <Route path='/about' element={[<About/>,<Foot/>]}/>
+        <Route path='/contact' element={<Contactus/>}/>
+        <Route path='/privacy' element={[<Privacypolicy/>,<Foot/>]}/>
+        <Route path='/terms' element={[<Terms/>,<Foot/>]}/>
+        <Route path='/feedback' element={[<Feedback/>,<Foot/>]}/>
         
         
       </Routes>

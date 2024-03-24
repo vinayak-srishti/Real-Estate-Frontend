@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Reg from './components/Images/Reg.jpg'
+import Reg from '../components/Images/Reg.jpg'
 import React, { useState } from 'react'
 
 function Seller_reg() {

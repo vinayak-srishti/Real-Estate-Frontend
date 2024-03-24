@@ -12,18 +12,18 @@ function Foot() {
                     <div class='col  '>
                         <ul style={{ listStyle: 'none' }} class='d-inline-grid'>
                             <h4>Company</h4><br></br>
-                            <p><a href='@' class='text-light text-decoration-none'><li>About us</li></a></p>
+                            <p><a href='/about' class='text-light text-decoration-none'><li>About us</li></a></p>
                             <p><a href='#' class='text-light text-decoration-none'><li>Contact us</li></a></p>
-                            <p><a href='#' class='text-light text-decoration-none'><li>privacy policy</li></a></p>
+                            <p><a href='/privacy' class='text-light text-decoration-none'><li>privacy policy</li></a></p>
                         </ul><br></br>
                     </div>
                     <div class='col'>
                         <ul style={{ listStyle: 'none' }} class='d-inline-grid'>
                             <h4>Links</h4><br></br>
-                            <p><a href='#' class='text-light text-decoration-none'><li>Terms & Condition</li></a></p>
+                            <p><a href='/terms' class='text-light text-decoration-none'><li>Terms & Condition</li></a></p>
                             <p><a href='#' class='text-light text-decoration-none'><li>Report problem</li></a></p>
                             <p><a href='#' class='text-light text-decoration-none'><li>Safty Guide</li></a></p>
-                            <p><a href='#' class='text-light text-decoration-none'><li>Feedeback</li></a></p>
+                            <p><a href='/feedback' class='text-light text-decoration-none'><li>Feedeback</li></a></p>
                         </ul>
                     </div>
                     <div class='col'>
@@ -39,16 +39,16 @@ function Foot() {
                             <h4>Connect with us</h4>
                             <div class='row'>
                                 <div class='col-auto'>
-                                    <a href='#'><img src={Yout} style={{ width: '30px', height: '25px' }}></img></a>
+                                    <a href='#'><img src={Yout} style={{ width: '37px', height: '37px' }}></img></a>
                                 </div>
                                 <div class='col-auto'>
-                                    <a href='#'><img src={Fac} style={{ width: '30px', height: '25px' }}></img></a>
+                                    <a href='#'><img src={Fac} style={{ width: '37px', height: '37px' }}></img></a>
                                 </div>
                                 <div class='col-auto'>
-                                    <a href='#'><img src={Inst} style={{ width: '30px', height: '25px' }}></img></a>
+                                    <a href='#'><img src={Inst} style={{ width: '37px', height: '37px' }}></img></a>
                                 </div>
                                 <div class='col-2'>
-                                    <a href='#'><img src={Twit} style={{ width: '30px', height: '25px' }}></img></a>
+                                    <a href='#'><img src={Twit} style={{ width: '37px', height: '37px' }}></img></a>
                                 </div>
                             </div>
                         </div>
