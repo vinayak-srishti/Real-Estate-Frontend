@@ -12,18 +12,18 @@ function Foot() {
                     <div class='col  '>
                         <ul style={{ listStyle: 'none' }} class='d-inline-grid'>
                             <h4>Company</h4><br></br>
-                            <p><a href='/about' class='text-light text-decoration-none'><li>About us</li></a></p>
-                            <p><a href='#' class='text-light text-decoration-none'><li>Contact us</li></a></p>
-                            <p><a href='/privacy' class='text-light text-decoration-none'><li>privacy policy</li></a></p>
+                            <p><a href='/about' target="_blank" class='text-light text-decoration-none'><li>About us</li></a></p>
+                            <p><a href='/contact' target="_blank" class='text-light text-decoration-none'><li>Contact us</li></a></p>
+                            <p><a href='/privacy' target="_blank" class='text-light text-decoration-none'><li>privacy policy</li></a></p>
                         </ul><br></br>
                     </div>
                     <div class='col'>
                         <ul style={{ listStyle: 'none' }} class='d-inline-grid'>
                             <h4>Links</h4><br></br>
-                            <p><a href='/terms' class='text-light text-decoration-none'><li>Terms & Condition</li></a></p>
-                            <p><a href='#' class='text-light text-decoration-none'><li>Report problem</li></a></p>
-                            <p><a href='#' class='text-light text-decoration-none'><li>Safty Guide</li></a></p>
-                            <p><a href='/feedback' class='text-light text-decoration-none'><li>Feedeback</li></a></p>
+                            <p><a href='/terms' target="_blank" class='text-light text-decoration-none'><li>Terms & Condition</li></a></p>
+                            <p><a href='/feedback' target="_blank" class='text-light text-decoration-none'><li>Report problem</li></a></p>
+                            <p><a href='saftey' target="_blank" class='text-light text-decoration-none'><li>Safty Guide</li></a></p>
+                            <p><a href='/feedback' target="_blank" class='text-light text-decoration-none'><li>Feedeback</li></a></p>
                         </ul>
                     </div>
                     <div class='col'>

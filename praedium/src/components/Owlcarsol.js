@@ -114,25 +114,6 @@ function Owlcarsol() {
                             </div>
                         </div>
                     </div>
-                    <div class='item'>
-
-                    </div>
-                    <div class='item '>
-
-                    </div>
-
-                    <div class='item'>
-
-                    </div>
-
-                    <div class='item'>
-
-                    </div>
-
-                    <div class='item'>
-
-                    </div>
-
                 </OwlCarousel>
             </div>
         </div>
