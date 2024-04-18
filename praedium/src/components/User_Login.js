@@ -39,7 +39,7 @@ function User_Login() {
                                     <input className='form-control' placeholder='Password' type='password' onChange={Change} name='Password' values={vals.Password}></input>
                                 </div>
                                 <div className='col-md-`12 d-flex justify-content-end'>
-                                    <a href=''>Forgot Password</a>
+                                    <Link to='/userforgot'>Forgot Password</Link>
                                 </div>
                                 <div className='col-md-12 text-center g-4'>
                                     <button className=' btn btn-primary col-6'>< img src={Img} style={{ width: '20px', height: '19px', marginBottom: '5px' }} /> Login </button>

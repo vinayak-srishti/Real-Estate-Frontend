@@ -32,6 +32,8 @@ import PropertiesList from './components/User/PropertiesList.js';
 import SellerMessage from './components/seller/SellerMessage.js';
 import Properties from './components/seller/Properties.js';
 import SellerProfile from './components/seller/SellerProfile.js';
+import SellerForgot from './components/seller/SellerForgot.js';
+import UserForgot from './components/User/UserForgot.js';
 
 
 
@@ -41,6 +43,7 @@ function App() {
     <BrowserRouter>
       <div>
         <Routes>
+
           <Route path='/User_login' element={[<CommonNav />, <User_Login />, <Foot />]} />
           <Route path='/seller_login' element={[<CommonNav />, <Seller_login />, <Foot />]} />
           <Route path='/reg' element={[<CommonNav />, <Regis />, <Foot />]} />
@@ -50,35 +53,37 @@ function App() {
           {/* <Route path='/Owl' element={<Owlcarsol/>}/> */}
           {/* <Route path='/whole' element={[<CommonNav />, <Owlcarsol />, <Body />, <Foot />]} /> */}
 
-          <Route path='/admin' element={[<AdminNav />,<Adminn />]} />
+          <Route path='/admin' element={[<AdminNav />, <Adminn />]} />
           <Route path='/about' element={[<CommonNav />, <About />, <Foot />]} />
           <Route path='/contact' element={[<CommonNav />, <Contactus />, <Foot />]} />
           <Route path='/privacy' element={[<CommonNav />, <Privacypolicy />, <Foot />]} />
           <Route path='/terms' element={[<CommonNav />, <Terms />, <Foot />]} />
           <Route path='/feedback' element={[<CommonNav />, <Feedback />, <Foot />]} />
           <Route path='/saftey' element={[<CommonNav />, <Saftey />, <Foot />]} />
-
-
-
-
+          <Route path='/sellerforgot' element={[<CommonNav />, <SellerForgot />, <Foot />]} />
+          <Route path='/userforgot' element={[<CommonNav />, <UserForgot />, <Foot />]} />
           {/* pages */}
 
           <Route path='/usernav' element={<UserNav />} />
           <Route path='/sellernav' element={<SellerNav />} />
           <Route path='/commonnav' element={<CommonNav />} />
           <Route path='/adminnav' element={<AdminNav />} />
+
+
           {/* user */}
-          <Route path='/userprofile' element={[<UserNav />,<UserProfile />,<Foot />]} />
-          <Route path='/orders' element={[<UserNav />,<Orders />,<Foot />]} />
-          <Route path='/sellerlist' element={[<UserNav />,<SellersList />,<Foot />]} />
-          <Route path='/usercart' element={[<UserNav />,<UserCart />,<Foot />]} />
-          <Route path='/usermessage' element={[<UserNav />,<UserMesssage />,<Foot />]} />
-          <Route path='/propertieslist' element={[<UserNav />,<PropertiesList />,<Foot />]} />
+          <Route path='/userprofile' element={[<UserNav />, <UserProfile />, <Foot />]} />
+          <Route path='/orders' element={[<UserNav />, <Orders />, <Foot />]} />
+          <Route path='/sellerlist' element={[<UserNav />, <SellersList />, <Foot />]} />
+          <Route path='/usercart' element={[<UserNav />, <UserCart />, <Foot />]} />
+          <Route path='/usermessage' element={[<UserNav />, <UserMesssage />, <Foot />]} />
+          <Route path='/propertieslist' element={[<UserNav />, <PropertiesList />, <Foot />]} />
+
+
           {/* seller */}
-          <Route path='/sellermessage' element={[<SellerNav />,<SellerMessage />,<Foot />]} />
-          <Route path='/properties' element={[<SellerNav />,<Properties />,<Foot />]} />
-          <Route path='/sellerprofile' element={[<SellerNav />,<SellerProfile />,<Foot />]} />
-          <Route path='/userorder' element={[<SellerNav />,<UserOrders />,<Foot />]} />
+          <Route path='/sellermessage' element={[<SellerNav />, <SellerMessage />, <Foot />]} />
+          <Route path='/properties' element={[<SellerNav />, <Properties />, <Foot />]} />
+          <Route path='/sellerprofile' element={[<SellerNav />, <SellerProfile />, <Foot />]} />
+          <Route path='/userorder' element={[<SellerNav />, <UserOrders />, <Foot />]} />
 
         </Routes>
       </div>
