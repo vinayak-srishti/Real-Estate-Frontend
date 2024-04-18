@@ -3,7 +3,7 @@ import Feed from '../components/Images/ask.png'
 
 function Feedback() {
     return (
-        <div>
+        <div className='mt-5 pt-5'>
             <div className='row justify-content-center p-4 '>
                 <div className='col-sm-6 col-md-9 bg-info-subtle' style={{ height: '180px' }}>
                     <img src={Feed} className='rounded mx-auto d-block' style={{ width: '100px', height: '70px', marginTop: '50px' }} alt="..." />

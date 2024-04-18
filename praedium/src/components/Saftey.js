@@ -3,7 +3,7 @@ import Saf from '../components/Images/safety.png'
 
 function Saftey() {
     return (
-        <div>
+        <div className='mt-5 pt-5'>
             <div className='row justify-content-center p-4 user-select-none'>
                 <div className='col-sm-6 col-md-9 bg-info-subtle' style={{ height: '180px' }}>
                     <img src={Saf} className='rounded mx-auto d-block' style={{ marginTop: '70px', height: '50px', width: '50px' }} alt="..." />

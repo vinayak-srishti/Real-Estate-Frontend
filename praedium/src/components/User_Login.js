@@ -58,9 +58,7 @@ function User_Login() {
                                         <div className='col-auto me-auto'>
                                             <a href='/terms'>Termscondition</a>
                                         </div>
-                                        <div className='col-auto'>
-                                            <a href='#' >Contactus</a>
-                                        </div>
+            
                                     </div>
                                 </div>
                                 <div className='col-lg-12'>
