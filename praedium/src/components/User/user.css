@@ -1,0 +1,14 @@
+.homepageimg {
+    background-image: url("https://img.freepik.com/free-photo/modern-residential-district-with-green-roof-balcony-generated-by-ai_188544-10276.jpg?t=st=1713609743~exp=1713613343~hmac=fe4531009950ad5ebdb54e676dbff95f4feec1a58eeed7c30dd6a955afccd347&w=826");
+    width: 100%;
+    height: 100vh;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+}
+.homepageheading{
+    background-color: rgba(0, 0, 0, 0.504);
+    margin: 100px;
+    padding: 5%;
+    color:white;
+    
+}
