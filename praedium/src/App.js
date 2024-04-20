@@ -34,11 +34,17 @@ import Properties from './components/seller/Properties.js';
 import SellerProfile from './components/seller/SellerProfile.js';
 import SellerForgot from './components/seller/SellerForgot.js';
 import UserForgot from './components/User/UserForgot.js';
+import SellerAddProperty from './components/seller/SellerAddProperty.js';
+import SellerEditProfile from './components/seller/SellerEditProfile.js';
+import UserHomePage from './components/User/UserHomePage.js';
 
 
 
 
 function App() {
+
+  const url = 'http://localhost:8081/'
+
   return (
     <BrowserRouter>
       <div>
@@ -84,7 +90,9 @@ function App() {
           <Route path='/properties' element={[<SellerNav />, <Properties />, <Foot />]} />
           <Route path='/sellerprofile' element={[<SellerNav />, <SellerProfile />, <Foot />]} />
           <Route path='/userorder' element={[<SellerNav />, <UserOrders />, <Foot />]} />
-
+          <Route path='/addproperty' element={[<SellerNav />, <SellerAddProperty />, <Foot />]} />
+          <Route path='/editprofile' element={[<SellerNav />, <SellerEditProfile />, <Foot />]} />
+          <Route path='/userhome' element={[<UserNav />, <UserHomePage />, <Foot />]} />
         </Routes>
       </div>
     </BrowserRouter>

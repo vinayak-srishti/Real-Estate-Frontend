@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../components/User_login.css'
 import Img from './Images/lock.png'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axiosInstance from '../baseURL'
 
 function User_Login() {
     const [vals,setvals]=useState({Username:'',Password:''})
@@ -14,7 +14,7 @@ function User_Login() {
     }
     const Submit=(vals_add)=>{
         vals_add.preventDefault()
-        axios.post('https://jsonplaceholder.typicode.com/posts',vals)
+        axiosInstance.post('/user/buyerlogin',vals)
         .then(res=>{
             console.log(res)
         })
