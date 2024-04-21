@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Reg from './Images/Reg.jpg'
 import axiosInstance from '../baseURL';
+import { useNavigate } from 'react-router-dom';
 
 
 function Regis() {
-    const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', Username: '', Password: '', file: '' })
-    const [errors, setErrors] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', Username: '', Password: '', file: '' });
+    const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', username: '', Password: '', file: '' })
+    const [errors, setErrors] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', username: '', Password: '', file: '' });
     let formValid = true;
 
     const Change = (a) => {
@@ -16,7 +17,7 @@ function Regis() {
         }
     };
 
-
+const navigate=useNavigate()
     const Submit = (e) => {
         e.preventDefault()
 
@@ -44,7 +45,7 @@ function Regis() {
         if (!vals.Phone.trim()) {
             formValid = false;
             errors.Phone = "Contact number is required";
-        } else if (vals.contact.length < 10) {
+        } else if (vals.contact && vals.contact.length < 10) {
             errors.contact = "Enter valid number";
         }
 
@@ -60,14 +61,14 @@ function Regis() {
         if (!vals.Address.trim()) {
             formValid = false;
             errors.Address = "Address is required";
-        } if (!vals.Username.trim()) {
+        } if (!vals.username.trim()) {
             formValid = false;
-            errors.Username = "Username is required";
+            errors.username = "username is required";
         }
         if (!vals.Password.trim()) {
             formValid = false;
             errors.Password = "Password is required";
-        } else if (vals.Password.length < 5) {
+        } else if (vals.Password && vals.Password.length < 5) {
             errors.Password = "Password should be atleast 6 characters";
         }
 
@@ -84,7 +85,7 @@ function Regis() {
             vals.Gender &&
             vals.Password &&
             vals.Address &&
-            vals.Username
+            vals.username
         ) {
             formValid = true;
         }
@@ -103,7 +104,9 @@ function Regis() {
             formData.append("gender", vals.Gender);
             formData.append("password", vals.Password);
             formData.append("file", vals.file);
-            console.log(" form ", formData);
+            formData.append("username", vals.username);
+            formData.append("address", vals.Address);
+            // console.log(" form ", formData);
 
             axiosInstance
                 .post("/user/register", formData, {
@@ -113,18 +116,18 @@ function Regis() {
                 })
                 .then((res) => {
                     console.log("Response:", res);
-                    alert("Waiting for Admin approval..");
+                    alert(res.data.message);
                     setTimeout(() => {
-                        // navigate("/admin");
+                        navigate("/User_login");
                     }, 1500);
                 })
                 .catch((err) => {
-                    console.error("Error:", err);
-                    let msg = err?.response?.data?.message || "Error occurred";
+                    var msg = err && err.response && err.response.data ? err.response.data : 'unexpected error'
                     alert(msg);
-                });
+                })
         } else {
             console.log("form is not valid", formValid);
+            alert("form is not valid", formValid);
             console.log("data entered", vals);
         }
 
@@ -198,8 +201,8 @@ function Regis() {
                                             <textarea type='text' className='form-control bg-light' onChange={Change} name='Address' value={vals.Address} />
                                         </div>
                                         <div className='col-md-6'>
-                                            <label>Username</label>
-                                            <input type='text' className='form-control bg-light' onChange={Change} name='Username' value={vals.Username} />
+                                            <label>username</label>
+                                            <input type='text' className='form-control bg-light' onChange={Change} name='username' value={vals.username} />
                                         </div>
                                         <div className='col-md-6'>
                                             <label>password</label>

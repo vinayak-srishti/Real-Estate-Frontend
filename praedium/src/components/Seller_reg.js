@@ -1,10 +1,15 @@
-import axios from 'axios'
 import Reg from '../components/Images/Reg.jpg'
 import React, { useState } from 'react'
 import axiosInstance from '../baseURL'
+import { useNavigate } from 'react-router-dom';
 
-function Seller_reg() {
-    const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', Username: '', Password: '' })
+function 
+Seller_reg() {
+    const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', username: '', Password: '', file: '' })
+    const [errors, setErrors] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', username: '', Password: '', file: '' });
+
+    let formValid = true;
+    const navigate=useNavigate()
 
     const Change = (a) => {
         if (a.target.name == "file") {
@@ -14,31 +19,117 @@ function Seller_reg() {
         }
     }
     const Submit = (e) => {
-        // vals_add.preventDefault()
-        // axios.post("https://jsonplaceholder.typicode.com/posts",vals)
-        // .then(rest=>{
-        //     console.log(rest)
-        // })
-        // .catch(err=>{
-        //     console.log(err)
-        // })
         e.preventDefault()
-        console.log(vals);
-        axiosInstance
-            .post("/Seller/sellerRegister", vals, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
-            .then((response) => {
-                console.log(response, "y");
-                // alert(response.data.msg);
-                // navigate(`/creatorepisodes/${id}`)
-            })
-            .catch((error) => {
-                console.error("Error submitting data: ", error);
-                alert("can't registered")
-            });
+
+        let errors = {};
+
+        if (!vals.Firstname.trim()) {
+            formValid = false;
+            errors.Firstname = "Firstname is required";
+        }
+
+        if (!vals.Lastname.trim()) {
+            formValid = false;
+            errors.Lastname = "Lastname is required";
+        }
+        if (!vals.Age.trim()) {
+            formValid = false;
+            errors.Age = "Age is required";
+        }
+
+        if (!vals.Email.trim()) {
+            formValid = false;
+            errors.Email = "Email is required";
+        }
+
+        if (!vals.Phone.trim()) {
+            formValid = false;
+            errors.Phone = "Contact number is required";
+        } else if (vals.contact && vals.contact.length < 10) {
+            errors.contact = "Enter valid number";
+        }
+
+        if (!vals.DOB.trim()) {
+            formValid = false;
+            errors.DOB = "DOB field is required";
+        }
+
+        if (!vals.Gender.trim()) {
+            formValid = false;
+            errors.Gender = "Gender field is required";
+        }
+        if (!vals.Address.trim()) {
+            formValid = false;
+            errors.Address = "Address is required";
+        } if (!vals.username.trim()) {
+            formValid = false;
+            errors.username = "username is required";
+        }
+        if (!vals.Password.trim()) {
+            formValid = false;
+            errors.Password = "Password is required";
+        } else if (vals.Password && vals.Password.length < 5) {
+            errors.Password = "Password should be atleast 6 characters";
+        }
+
+
+        setErrors(errors);
+        // registerCouncilar
+
+        if (
+            vals.Firstname && vals.Lastname &&
+            vals.Age &&
+            vals.Email &&
+            vals.Phone &&
+            vals.DOB &&
+            vals.Gender &&
+            vals.Password &&
+            vals.Address &&
+            vals.username
+        ) {
+            formValid = true;
+        }
+        if (formValid) {
+            // sendDataToServer();
+
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append("firstname", vals.Firstname);
+            formData.append("lastname", vals.Lastname);
+            formData.append("age", vals.Age);
+            formData.append("email", vals.Email);
+            formData.append("phone", vals.Phone);
+            formData.append("dob", vals.DOB);
+            formData.append("gender", vals.Gender);
+            formData.append("password", vals.Password);
+            formData.append("file", vals.file);
+            formData.append("username", vals.username);
+            formData.append("address", vals.Address);
+            // console.log(" form ", formData);
+
+            axiosInstance
+                .post("/Seller/sellerRegister", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                })
+                .then((res) => {
+                    console.log("Response:", res);
+                    alert(res.data.message);
+                    setTimeout(() => {
+                        navigate("/seller_login");
+                    }, 1500);
+                })
+                .catch((err) => {
+                    var msg = err && err.response && err.response.data ? err.response.data : 'unexpected error'
+                    alert(msg);
+                })
+        } else {
+            console.log("form is not valid", formValid);
+            alert("form is not valid", formValid);
+            console.log("data entered", vals);
+        }
     }
     return (
         <div>
@@ -93,7 +184,7 @@ function Seller_reg() {
                                         </div>
                                         <div className='col-md-6'>
                                             <label>Username</label>
-                                            <input type='text' className='form-control bg-light' onChange={Change} name='Username' value={vals.Username} />
+                                            <input type='text' className='form-control bg-light' onChange={Change} name='username' value={vals.username} />
                                         </div>
                                         <div className='col-md-6'>
                                             <label>password</label>

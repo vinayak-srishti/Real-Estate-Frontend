@@ -18,7 +18,7 @@ function SellerProfile() {
           <p> Email :L </p>
           <p> Address :L </p>
           <p> Username :L </p>
-          <div><button className='btn btn-primary'><Link className='text-light text-decoration-none' to="/editprofile">Edit</Link></button><button className='ms-5 btn btn-primary'>
+          <div><button className='btn btn-primary'><Link className='text-light text-decoration-none' to="/sellereditprofile">Edit</Link></button><button className='ms-5 btn btn-primary'>
             <Link className='text-light text-decoration-none' to="">Logout</Link></button></div>
         </div>
       </div>
