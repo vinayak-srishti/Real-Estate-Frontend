@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import User_Login from './components/User_Login.js';
 import Foot from './components/Foot.js'
 import Body from './components/Body.js'
-import Owlcarsol from './components/Owlcarsol.js';
+// import Owlcarsol from './components/Owlcarsol.js';
 import Regis from './components/Regis.js';
 import Seller_login from './components/Seller_login.js';
 import Seller_reg from './components/Seller_reg.js';
@@ -34,11 +34,21 @@ import Properties from './components/seller/Properties.js';
 import SellerProfile from './components/seller/SellerProfile.js';
 import SellerForgot from './components/seller/SellerForgot.js';
 import UserForgot from './components/User/UserForgot.js';
+import SellerAddProperty from './components/seller/SellerAddProperty.js';
+import SellerEditProfile from './components/seller/SellerEditProfile.js';
+import UserHomePage from './components/User/UserHomePage.js';
+import UserEditProfile from './components/User/UserEditProfile.js';
+import SellerHomePage from './components/seller/SellerHomePage.js';
 
 
 
 
 function App() {
+
+  const url = 'http://localhost:8081/'
+
+  
+
   return (
     <BrowserRouter>
       <div>
@@ -84,6 +94,12 @@ function App() {
           <Route path='/properties' element={[<SellerNav />, <Properties />, <Foot />]} />
           <Route path='/sellerprofile' element={[<SellerNav />, <SellerProfile />, <Foot />]} />
           <Route path='/userorder' element={[<SellerNav />, <UserOrders />, <Foot />]} />
+          <Route path='/addproperty' element={[<SellerNav />, <SellerAddProperty />, <Foot />]} />
+          <Route path='/sellereditprofile' element={[<SellerNav />, <SellerEditProfile />, <Foot />]} />
+          <Route path='/userhome' element={[<UserNav />, <UserHomePage />, <Foot />]} />
+          <Route path='/usereditprofile' element={[<UserNav />, <UserEditProfile/>, <Foot />]} />
+          <Route path='/sellerhome' element={[<SellerNav />, <SellerHomePage />, <Foot />]} />
+
 
         </Routes>
       </div>
