@@ -37,6 +37,7 @@ import UserForgot from './components/User/UserForgot.js';
 import SellerAddProperty from './components/seller/SellerAddProperty.js';
 import SellerEditProfile from './components/seller/SellerEditProfile.js';
 import UserHomePage from './components/User/UserHomePage.js';
+import LandingPage from './components/LandingPage.js';
 
 
 
@@ -69,7 +70,7 @@ function App() {
           <Route path='/sellerforgot' element={[<CommonNav />, <SellerForgot />, <Foot />]} />
           <Route path='/userforgot' element={[<CommonNav />, <UserForgot />, <Foot />]} />
           {/* pages */}
-
+          <Route path='/' element={[<CommonNav />, <LandingPage />,<Foot />]} />
           <Route path='/usernav' element={<UserNav />} />
           <Route path='/sellernav' element={<SellerNav />} />
           <Route path='/commonnav' element={<CommonNav />} />
@@ -93,6 +94,7 @@ function App() {
           <Route path='/addproperty' element={[<SellerNav />, <SellerAddProperty />, <Foot />]} />
           <Route path='/editprofile' element={[<SellerNav />, <SellerEditProfile />, <Foot />]} />
           <Route path='/userhome' element={[<UserNav />, <UserHomePage />, <Foot />]} />
+
         </Routes>
       </div>
     </BrowserRouter>
