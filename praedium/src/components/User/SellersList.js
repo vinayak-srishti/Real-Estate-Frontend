@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Table from 'react-bootstrap/Table';
+
 function SellersList() {
   return (
-    <div className='mt-5 pt-5'>  <Table striped bordered hover variant="dark">
+    <div className='container mt-5 pt-5'>  <Table striped bordered hover variant="dark">
     <thead>
       <tr>
         <th>#</th>

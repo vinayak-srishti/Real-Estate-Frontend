@@ -50,7 +50,7 @@ let errors = {}
    
     < div id='FgPassword'>
 
-    <h1> User Reset Password</h1>
+    <h1> Buyer Reset Password</h1>
     
     <div className='user-loginform'>
       <form onSubmit={submitfn}>
