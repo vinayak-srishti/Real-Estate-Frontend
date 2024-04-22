@@ -18,7 +18,9 @@ function Seller_login() {
         vals_add.preventDefault()
         axiosInstance.post('/Seller/sellerlogin', vals)
             .then(res => {
-                console.log(res.data)
+                console.log(res)
+                alert(res.data.message)
+                localStorage.setItem("sellerId", res.data.sellerId)
                 navigate("/sellerhome")
 
             })

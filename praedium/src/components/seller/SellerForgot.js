@@ -47,6 +47,9 @@ let errors = {}
     errors.password = formValidation("Password", sellerfp.password)
 
     setErrors(errors)
+
+
+    
   }
 
 return (

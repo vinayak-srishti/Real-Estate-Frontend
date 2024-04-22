@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import axiosInstance from '../../baseURL'
+
 
 function UserEditProfile() {
     const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', file: '' })
@@ -9,7 +11,36 @@ function UserEditProfile() {
             setvals({ ...vals, [a.target.name]: a.target.value });
         }
     }
-    const Submit = () => {
+    const Submit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("firstname", vals.Firstname);
+        formData.append("lastname", vals.Lastname);
+        formData.append("age", vals.Age);
+        formData.append("email", vals.Email);
+        formData.append("phone", vals.Phone);
+        formData.append("dob", vals.DOB);
+        formData.append("gender", vals.Gender);
+        formData.append("password", vals.Password);
+        formData.append("file", vals.file);
+        formData.append("username", vals.username);
+        formData.append("address", vals.Address);
+
+        axiosInstance.put('/user/updateBuyer/' + localStorage.getItem("userId"),formData,  {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        })
+        .then(res=>{
+            console.log(res);
+            alert(res.data)
+            // navigate("/properties")
+        })
+        .catch(err=>{
+            console.log(err);
+            alert("unable to update plese enter valid information")
+        })
 
     }
     return (

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axiosInstance from '../../baseURL'
+
 
 function UserForgot() {
 const [userfg,setUserfg]=useState({
@@ -37,13 +39,36 @@ const formValidation = (fieldName, value) => {
 
 const submitfn = (e)=>{
 e.preventDefault();
+console.log('pp')
 
 let errors = {}
 
   errors.email = formValidation("Email", userfg.email);
   errors.password = formValidation("Password", userfg.password)
 
-  setErrors(errors)
+  setErrors(errors);
+
+
+  if (!errors.email && !errors.password) {
+    const formData = new FormData();
+    formData.append("email", userfg.email);
+    formData.append("newPassword", userfg.password);
+
+    axiosInstance.put('http://localhost:8081/user/resetPassword',formData,  {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    })
+    .then(res=>{
+        console.log(res);
+        alert(res.data)
+        // navigate("/properties")
+    })
+    .catch(err=>{
+        console.log(err);
+        alert("unable to update plese enter valid information")
+    })
+  }
 }
 
   return (

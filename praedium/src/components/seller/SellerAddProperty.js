@@ -30,6 +30,7 @@ function SellerAddProperty() {
         formData.append("price", vals.price);
         formData.append("area", vals.area);
         formData.append("file", vals.file);
+        formData.append("sid", localStorage.getItem('sellerId'));
 
         axiosInstance.post('/Seller/AddProperty',formData,  {
             headers: {
