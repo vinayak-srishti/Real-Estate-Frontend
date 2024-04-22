@@ -3,7 +3,7 @@ import Land from "../Images/Land.jpg"
 
 function UserOrders() {
   return (
-    <div className='mt-5 pt-5' ><div className=' container mt-5 pt-5'>
+    <div className='mt-5 pt-5' ><div className=' container'>
     <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card">

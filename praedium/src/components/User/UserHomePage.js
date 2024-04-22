@@ -2,11 +2,15 @@ import React from 'react'
 import './user.css'
 function UserHomePage() {
     return (
+
+        <div>
         <div className='homepageimg mt-5 pt-5 text-light'>
             <div className='homepageheading text-center '><div className='fs-1 fw-100'>Find Your Property</div>
                 <div className='text-light'>100% verified listings</div>
                 <div>Real property picture</div></div>
-            <div>
+           
+        </div>
+        <div className='container p-5'>
                 We are a licenced Real Estate Agency and registered in the Council of Cyprus Real Estate Agents,which is governed by the Cyprus Law.
                 With great pleasure we offer you the following property services all over Cyprus in Nicosia,Limassol, Larnaca, Paphos, Paralimni, Ayia Napa and Protaras:
                 Sales of properties and rentals of residential real estate ranging from apartments for sale, houses for sale and villas for sale. Also commercial property in Cyprus, ranging from offices, shops, warehouses, restaurants, shopping centers, hotels and other kind of business,all over Cyprus.
