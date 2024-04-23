@@ -18,7 +18,8 @@ function User_Login() {
         axiosInstance.post('/user/buyerlogin',vals)
         .then(res=>{
             console.log(res);
-            alert(res.data)
+            alert(res.data.message)
+            localStorage.setItem("userId", res.data.userId)
             navigate("/userhome")
         })
         .catch(err=>{
