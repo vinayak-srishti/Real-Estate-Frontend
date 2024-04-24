@@ -54,7 +54,7 @@ let errors = {}
     formData.append("email", userfg.email);
     formData.append("newPassword", userfg.password);
 
-    axiosInstance.put('http://localhost:8081/user/resetPassword',formData,  {
+    axiosInstance.post('http://localhost:8081/user/resetPassword',formData,  {
         headers: {
             "Content-Type": "multipart/form-data",
         },
