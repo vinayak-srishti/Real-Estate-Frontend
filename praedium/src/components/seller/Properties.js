@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../baseURL'
 
 
-function Properties() {
+function Properties({url}) {
 
   const [propertyListings, setPropertyListings] = useState([]);
 
@@ -35,7 +35,7 @@ function Properties() {
       {propertyListings.map((listing, index) => (
         <div class="col">
         <div class="card">
-          <img src={Land} class="card-img-top" alt="..."></img>
+          <img src={`${url}/${listing.pic}`} class="card-img-top" alt="..."></img>
           <div class="card-body">
             <h5 class="card-title">{listing.city}</h5>
             <p class="card-text">{listing.features}</p>
