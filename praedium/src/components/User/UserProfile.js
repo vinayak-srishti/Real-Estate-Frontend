@@ -1,7 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import axiosInstance from '../../baseURL'
+
 
 function UserProfile() {
+
+  axiosInstance.put('/user/updateBuyer/' + localStorage.getItem("userId"),  {
+    headers: {
+        "Content-Type": "multipart/form-data",
+    },
+})
+.then(res=>{
+    console.log(res);
+    alert(res.data)
+    // navigate("/properties")
+})
+.catch(err=>{
+    console.log(err);
+    alert("unable to update plese enter valid information")
+})
+
   return (
     <div className='mt-5 pt-5'><div className='container mt-5 pt-5'>
     <div className='row' style={{ backgroundColor: 'whitesmoke', padding: '4% ', boxshadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;' }}>
