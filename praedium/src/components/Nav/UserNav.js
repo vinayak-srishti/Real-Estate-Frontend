@@ -1,6 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-function UserNav() {
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
+import axiosInstance from '../../baseURL'
+
+
+function UserNav({url}) {
+
+    const [profile, setProfile] = useState([]);
+
+    useEffect(() => {
+        axiosInstance.get('/user/profileView/' + localStorage.getItem("userId"),  {
+          headers: {
+              "Content-Type": "multipart/form-data",
+          },
+        })
+        .then(res=>{
+            console.log(res);
+            setProfile(res.data)
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+      }, []);
+
     return (
         <div><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top">
             <div class="container">
@@ -27,11 +48,12 @@ function UserNav() {
                         </li>
                     </ul>
                     <div class="dropdown " style={{ marginRight: '10px' }}>
-                        <Link class="btn btn-outline-primary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link class="dropdown-toggle rounded-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img
-                                src={""}
+                                src={`${url}${profile.profile}`}
                                 alt="img"
                                 className="profileimg"
+                                style={{width:"50px",height:'50px'}}
                             ></img>
                         </Link>
                         <ul class="dropdown-menu">

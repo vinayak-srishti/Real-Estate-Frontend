@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "./SellerForget.css"
+import axiosInstance from '../../baseURL'
+
 
 function SellerForgot() {
 
@@ -31,11 +33,12 @@ function SellerForgot() {
     if (!value.trim()) {
       return `${fieldName} is required`;
     }
-    if (fieldName === "Password" && value.length < 8) {
-      return "Password must be at least 8 characters long";
-    }
+    // if (fieldName === "Password" && value.length < 8) {
+    //   return "Password must be at least 8 characters long";
+    // }
     return '';
   }
+  const navigate=useNavigate()
 
 
   const submitfn = (e) => {
@@ -48,8 +51,26 @@ function SellerForgot() {
 
     setErrors(errors)
 
-
-
+    if (!errors.email && !errors.password) {
+      const formData = new FormData();
+      formData.append("email", sellerfp.email);
+      formData.append("password", sellerfp.password);
+  
+      axiosInstance.put('/Seller/resetSeller-password',formData,  {
+          headers: {
+              "Content-Type": "multipart/form-data",
+          },
+      })
+      .then(res=>{
+          console.log(res);
+          alert(res.data)
+          navigate("/seller_login")
+      })
+      .catch(err=>{
+          console.log(err);
+          alert("unable to update plese enter valid information")
+      })
+    }
   }
 
   return (
