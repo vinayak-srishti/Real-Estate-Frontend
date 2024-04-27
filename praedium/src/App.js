@@ -40,7 +40,7 @@ import UserHomePage from './components/User/UserHomePage.js';
 import LandingPage from './components/LandingPage.js';
 import UserEditProfile from './components/User/UserEditProfile.js';
 import SellerHomePage from './components/seller/SellerHomePage.js';
-
+import Paymentform from './components/User/Paymentform.js';
 
 
 
@@ -85,11 +85,11 @@ function App() {
           {/* user */}
           <Route path='/userprofile' element={[<UserNav url={url}/>, <UserProfile url={url} />, <Foot />]} />
           <Route path='/orders' element={[<UserNav url={url}/>, <Orders />, <Foot />]} />
-          <Route path='/sellerlist' element={[<UserNav url={url}/>, <SellersList />, <Foot />]} />
+          <Route path='/sellerlist' element={[<UserNav url={url}/>, <SellersList url={url} />, <Foot />]} />
           <Route path='/usercart' element={[<UserNav url={url}/>, <UserCart />, <Foot />]} />
           <Route path='/usermessage' element={[<UserNav url={url}/>, <UserMesssage />, <Foot />]} />
-          <Route path='/propertieslist' element={[<UserNav url={url}/>, <PropertiesList />, <Foot />]} />
-
+          <Route path='/propertieslist' element={[<UserNav url={url}/>, <PropertiesList url={url} />, <Foot />]} />
+          <Route path='/payment' element={[<UserNav url={url}/>, <Paymentform/>, <Foot />]} />
 
           {/* seller */}
           <Route path='/sellermessage' element={[<SellerNav url={url}/>, <SellerMessage />, <Foot />]} />

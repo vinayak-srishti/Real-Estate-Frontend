@@ -21,6 +21,12 @@ function UserNav({url}) {
             console.log(err);
         })
       }, []);
+      const navigate=useNavigate()
+
+      const logout =() => {
+        localStorage.removeItem('userId');
+        navigate("/user_login")
+      }
 
     return (
         <div><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top">
@@ -58,7 +64,7 @@ function UserNav({url}) {
                         </Link>
                         <ul class="dropdown-menu">
                             <li className=''><Link to="/userprofile" class="dropdown-item" href="User_login">Profile</Link></li>
-                            <li><Link to="" class="dropdown-item" href="seller_login">Logout</Link></li>
+                            <li><button class="dropdown-item" href="seller_login" onClick={logout}>Logout</button></li>
                         </ul>
                     </div>
                 </div>

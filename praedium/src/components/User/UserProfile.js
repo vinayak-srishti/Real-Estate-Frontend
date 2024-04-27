@@ -10,22 +10,27 @@ function UserProfile({url}) {
 
   const logout =() => {
     localStorage.removeItem('userId');
-    navigate("/userhome")
+    navigate("/user_login")
   }
 
   useEffect(() => {
-    axiosInstance.get('/user/profileView/' + localStorage.getItem("userId"),  {
-      headers: {
-          "Content-Type": "multipart/form-data",
-      },
-    })
-    .then(res=>{
-        console.log(res);
-        setProfile(res.data)
-    })
-    .catch(err=>{
-        console.log(err);
-    })
+    if (localStorage.getItem("userId")) {
+      axiosInstance.get('/user/profileView/' + localStorage.getItem("userId"),  {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(res=>{
+          console.log(res);
+          setProfile(res.data)
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    } else {
+      navigate("/User_login")
+    }
+    
   }, []);
 
   return (
@@ -44,8 +49,8 @@ function UserProfile({url}) {
         <p> Email :{profile.email} </p>
         <p> Address :{profile.address} </p>
         <p> Username :{profile.username} </p>
-        <div><button className='btn btn-primary'><Link className='text-light text-decoration-none' to="/usereditprofile">Edit</Link></button><button className='ms-5 btn btn-primary'>
-          <button className='text-light text-decoration-none' to="" onClick={logout}>Logout</button></button></div>
+        <div><button className='btn btn-primary'><Link className='text-light text-decoration-none' to="/usereditprofile">Edit</Link></button><button onClick={logout} className='ms-5 btn btn-primary'>
+          <div className='text-light text-decoration-none' to="" >Logout</div></button></div>
       </div>
     </div>
   </div></div>
