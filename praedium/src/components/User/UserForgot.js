@@ -30,10 +30,10 @@ const formValidation = (fieldName, value) => {
   if (!value.trim()) {
     return `${fieldName} is required`;
   }
-  if (fieldName === "Password" && value.length < 8) {
-    return "Password must be at least 8 characters long";
-  }
-  return '';
+  // if (fieldName === "Password" && value.length < 8) {
+  //   return "Password must be at least 8 characters long";
+  // }
+  // return '';
 }
 
 
@@ -54,7 +54,7 @@ let errors = {}
     formData.append("email", userfg.email);
     formData.append("newPassword", userfg.password);
 
-    axiosInstance.put('http://localhost:8081/user/resetPassword',formData,  {
+    axiosInstance.post('http://localhost:8081/user/resetPassword',formData,  {
         headers: {
             "Content-Type": "multipart/form-data",
         },
@@ -66,7 +66,7 @@ let errors = {}
     })
     .catch(err=>{
         console.log(err);
-        alert("unable to update plese enter valid information")
+        alert("unable to reset please enter valid information")
     })
   }
 }
