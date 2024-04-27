@@ -35,10 +35,19 @@ function Properties({url}) {
       {propertyListings.map((listing, index) => (
         <div class="col">
         <div class="card">
+<<<<<<< HEAD
           <img src={`${url}${listing.pic}`} class="card-img-top" alt="..."></img>
+=======
+          <img src={`${url}/${listing.pic}`} class="card-img-top" alt="..."></img>q
+>>>>>>> 8a77b8f55524bd0d0b1a75c599d672d8d290778e
           <div class="card-body">
             <h5 class="card-title">{listing.city}</h5>
-            <p class="card-text">{listing.features}</p>
+            <p class="card-text">{listing.landmark }</p>
+            <p class="card-text">{listing.area }</p>
+            <p class="card-text">{listing.district }</p>
+            <p class="card-text">{listing.log }</p>
+            <p class="card-text">{listing.lat }</p>
+            <p class="card-text">{listing.price}</p>
           </div>
         </div>
       </div>
