@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axiosInstance from '../../baseURL'
 
 
-function UserEditProfile() {
+function UserEditProfile({url}) {
+    const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    axiosInstance.get('/user/profileView/' + localStorage.getItem("userId"),  {
+      headers: {
+          "Content-Type": "multipart/form-data",
+      },
+    })
+    .then(res=>{
+        console.log(res);
+        setProfile(res.data)
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+  }, []);
     const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', file: '' })
     const Change = (a) => {
         if (a.target.name == "file") {
@@ -54,24 +70,24 @@ function UserEditProfile() {
                                     <div className='row g-3'>
                                         <div className='col-md-6'>
                                             <label>Firstname</label>
-                                            <input type='text' className='form-control bg-light' onChange={Change} name='Firstname' value={vals.Firstname} />
+                                            <input type='text' className='form-control bg-light' onChange={Change} name='Firstname' value={vals.Firstname} placeholder={profile.firstname} />
                                         </div>
                                         <div className='col-md-6'>
                                             <label>Lastname</label>
-                                            <input type='text' className='form-control bg-light' onChange={Change} name='Lastname' value={vals.Lastname} />
+                                            <input type='text' className='form-control bg-light' onChange={Change} name='Lastname' value={vals.Lastname} placeholder={profile.lastname}/>
                                         </div>
                                         <div className='col-md-6'>
                                             <label>Age</label>
-                                            <input type='number' className='form-control bg-light' onChange={Change} name='Age' value={vals.Age} />
+                                            <input type='number' className='form-control bg-light' onChange={Change} name='Age' value={vals.Age} placeholder={profile.age}/>
                                         </div>
                                         <div className='col-md-6'>
                                             <label>DOB</label>
-                                            <input type='date' className='form-control bg-light' onChange={Change} name='DOB' value={vals.DOB} />
+                                            <input type='date' className='form-control bg-light' onChange={Change} name='DOB' value={vals.DOB} placeholder={profile.dob}/>
                                         </div>
                                         <div className='col-12'>
                                             <label>Gender</label>
-                                            <select className='form-select bg-light' onChange={Change} name='Gender' value={vals.Gender}>
-                                                <option>Choose</option>
+                                            <select className='form-select bg-light' onChange={Change} name='Gender' value={vals.Gender} >
+                                                <option>{profile.gender}</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
                                                 <option>other</option>
@@ -79,24 +95,26 @@ function UserEditProfile() {
                                         </div>
                                         <div className='col-md-6'>
                                             <label>Phoneno</label>
-                                            <input type='number' className='form-control bg-light' onChange={Change} name='Phone' value={vals.Phone} />
+                                            <input type='number' className='form-control bg-light' onChange={Change} name='Phone' value={vals.Phone} placeholder={profile.phone}/>
                                         </div>
                                         <div className='col-md-6'>
                                             <label>Email</label>
-                                            <input type='email' className='form-control bg-light' onChange={Change} name='Email' value={vals.Email} />
+                                            <input type='email' className='form-control bg-light' onChange={Change} name='Email' value={vals.Email} placeholder={profile.email}/>
                                         </div>
                                         <div className='col-12'>
                                             <label>Address</label>
-                                            <textarea type='text' className='form-control bg-light' onChange={Change} name='Address' value={vals.Address} />
+                                            <textarea type='text' className='form-control bg-light' onChange={Change} name='Address' value={vals.Address} placeholder={profile.address}/>
                                         </div>
                                         <div className='col-md-6'>
-                                            <label>profile</label>
-                                            <input type='file' className='form-control bg-light' onChange={Change} name='file' />
+                                            <label>preview</label>
+                                            <div>
+                                                <img src={`${url}${profile.profile}`}/>
+                                            </div>
+                                            <input type='file'  className='form-control bg-light' onChange={Change} name='file' />
                                         </div>
-                                        <div className='col-md-6 mt-4 pt-3'>
-                                            <button className='btn btn-outline-success col-12' >Submit</button>
-                                        </div>
-
+                                    </div>
+                                    <div className='col-md-6 mt-4 pt-3'>
+                                        <button className='btn btn-outline-success col-12' >Submit</button>
                                     </div>
                                 </div>
                             </div>
