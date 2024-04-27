@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axiosInstance from '../../baseURL'
 
 
@@ -12,6 +12,7 @@ const [errors,setErrors]=useState({
   email:"",
   password:""
 })
+const navigate=useNavigate()
 
 const changefn = (e) => {
 
@@ -54,7 +55,7 @@ let errors = {}
     formData.append("email", userfg.email);
     formData.append("newPassword", userfg.password);
 
-    axiosInstance.put('http://localhost:8081/user/resetPassword',formData,  {
+    axiosInstance.post('/user/resetPassword',formData,  {
         headers: {
             "Content-Type": "multipart/form-data",
         },
@@ -62,7 +63,7 @@ let errors = {}
     .then(res=>{
         console.log(res);
         alert(res.data)
-        // navigate("/properties")
+        navigate("/user_login")
     })
     .catch(err=>{
         console.log(err);

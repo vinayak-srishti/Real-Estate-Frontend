@@ -76,33 +76,31 @@ function App() {
           
           {/* pages */}
           <Route path='/' element={[<CommonNav />, <LandingPage />, <Foot />]} />
-          <Route path='/usernav' element={<UserNav />} />
-          <Route path='/sellernav' element={<SellerNav />} />
+          <Route path='/usernav' element={<UserNav url={url}/>} />
+          <Route path='/sellernav' element={<SellerNav url={url}/>} />
           <Route path='/commonnav' element={<CommonNav />} />
           <Route path='/adminnav' element={<AdminNav />} />
 
 
           {/* user */}
-          <Route path='/userprofile' element={[<UserNav />, <UserProfile url={url} />, <Foot />]} />
-          <Route path='/orders' element={[<UserNav />, <Orders />, <Foot />]} />
-          <Route path='/sellerlist' element={[<UserNav />, <SellersList />, <Foot />]} />
-          <Route path='/usercart' element={[<UserNav />, <UserCart />, <Foot />]} />
-          <Route path='/usermessage' element={[<UserNav />, <UserMesssage />, <Foot />]} />
-          <Route path='/propertieslist' element={[<UserNav />, <PropertiesList />, <Foot />]} />
+          <Route path='/userprofile' element={[<UserNav url={url}/>, <UserProfile url={url} />, <Foot />]} />
+          <Route path='/orders' element={[<UserNav url={url}/>, <Orders />, <Foot />]} />
+          <Route path='/sellerlist' element={[<UserNav url={url}/>, <SellersList />, <Foot />]} />
+          <Route path='/usercart' element={[<UserNav url={url}/>, <UserCart />, <Foot />]} />
+          <Route path='/usermessage' element={[<UserNav url={url}/>, <UserMesssage />, <Foot />]} />
+          <Route path='/propertieslist' element={[<UserNav url={url}/>, <PropertiesList />, <Foot />]} />
 
 
           {/* seller */}
-          <Route path='/sellermessage' element={[<SellerNav />, <SellerMessage />, <Foot />]} />
-          <Route path='/properties' element={[<SellerNav />, <Properties url={url} />, <Foot />]} />
-          <Route path='/sellerprofile' element={[<SellerNav />, <SellerProfile />, <Foot />]} />
-          <Route path='/userorder' element={[<SellerNav />, <UserOrders />, <Foot />]} />
-          <Route path='/addproperty' element={[<SellerNav />, <SellerAddProperty />, <Foot />]} />
-          <Route path='/sellereditprofile' element={[<SellerNav />, <SellerEditProfile />, <Foot />]} />
-          <Route path='/userhome' element={[<UserNav />, <UserHomePage />, <Foot />]} />
-          <Route path='/usereditprofile' element={[<UserNav />, <UserEditProfile url={url} />, <Foot />]} />
-          <Route path='/sellerhome' element={[<SellerNav />, <SellerHomePage />, <Foot />]} />
-
-
+          <Route path='/sellermessage' element={[<SellerNav url={url}/>, <SellerMessage />, <Foot />]} />
+          <Route path='/properties' element={[<SellerNav url={url}/>, <Properties url={url} />, <Foot />]} />
+          <Route path='/sellerprofile' element={[<SellerNav url={url}/>, <SellerProfile url={url}  />, <Foot />]} />
+          <Route path='/userorder' element={[<SellerNav url={url}/>, <UserOrders />, <Foot />]} />
+          <Route path='/addproperty' element={[<SellerNav url={url}/>, <SellerAddProperty />, <Foot />]} />
+          <Route path='/sellereditprofile' element={[<SellerNav url={url}/>, <SellerEditProfile />, <Foot />]} />
+          <Route path='/userhome' element={[<UserNav url={url}/>, <UserHomePage />, <Foot />]} />
+          <Route path='/usereditprofile' element={[<UserNav url={url}/>, <UserEditProfile url={url} />, <Foot />]} />
+          <Route path='/sellerhome' element={[<SellerNav url={url}/>, <SellerHomePage />, <Foot />]} />
         </Routes>
       </div>
     </BrowserRouter>
