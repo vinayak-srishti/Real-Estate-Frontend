@@ -89,7 +89,7 @@ function App() {
           <Route path='/usercart' element={[<UserNav url={url}/>, <UserCart />, <Foot />]} />
           <Route path='/usermessage' element={[<UserNav url={url}/>, <UserMesssage />, <Foot />]} />
           <Route path='/propertieslist' element={[<UserNav url={url}/>, <PropertiesList url={url} />, <Foot />]} />
-          <Route path='/payment' element={[<UserNav url={url}/>, <Paymentform/>, <Foot />]} />
+          <Route path='/payment/:id' element={[<UserNav url={url}/>, <Paymentform/>, <Foot />]} />
 
           {/* seller */}
           <Route path='/sellermessage' element={[<SellerNav url={url}/>, <SellerMessage />, <Foot />]} />

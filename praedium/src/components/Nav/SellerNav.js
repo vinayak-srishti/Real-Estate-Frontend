@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axiosInstance from '../../baseURL'
 
 function SellerNav({url}) {
@@ -21,8 +21,16 @@ function SellerNav({url}) {
         })
       }, []);
 
+      const navigate=useNavigate()
+
+      const logout =() => {
+        localStorage.removeItem('sellerId');
+        navigate("/seller_login")
+      }
+
+
     return (
-        <div><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top">
+        <div ><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="sellerhome">Navbar w/ text</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,16 +49,17 @@ function SellerNav({url}) {
                         </li>
                     </ul>
                     <div class="dropdown " style={{ marginRight: '10px' }}>
-                        <Link class="btn btn-outline-primary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link class="dropdown-toggle rounded-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img
                                 src={`${url}${profile.profile}`}
                                 alt="img"
                                 className="profileimg"
+                                style={{width:"50px",height:'50px',borderRadius:'50px'}}
                             ></img>
                         </Link>
                         <ul class="dropdown-menu">
-                            <li className=''><Link to="/sellerprofile" class="dropdown-item" href="User_login">Profile</Link></li>
-                            <li><Link to="/" class="dropdown-item" href="seller_login">Logout</Link></li>
+                            <li className=''><Link to="/userprofile" class="dropdown-item" href="User_login">Profile</Link></li>
+                            <li><button class="dropdown-item" href="seller_login" onClick={logout}>Logout</button></li>
                         </ul>
                     </div>
                 </div>

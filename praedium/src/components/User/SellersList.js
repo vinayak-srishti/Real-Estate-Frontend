@@ -14,7 +14,7 @@ function SellersList({url}) {
           },
         };
         const response = await axiosInstance.get(
-          "Seller/sellerListing",
+          "admin/sellerListing",
           config
         );
         console.log(response.data);
@@ -28,7 +28,7 @@ function SellersList({url}) {
   }, []);
 
   return (
-    <div className="container mt-5 pt-5">
+    <div className="container mt-5 pt-5" style={{height:'100vh'}}>
       {" "}
       {sellersListings && sellersListings.length > 0 ?
         <Table striped bordered hover variant="light">
@@ -48,7 +48,7 @@ function SellersList({url}) {
         {
           sellersListings.map((items,index)=>(
           <tr>
-          <td><img src={`${url}${items.profile}`}></img></td>
+          <td><img style={{width:'50px',height:'50px',borderRadius:'50px'}} src={`${url}${items.profile}`}></img></td>
           <td>{items.firstname}{items.lastname}</td>
           <td>{items.age}</td>
           <td>{items.phone}</td>
