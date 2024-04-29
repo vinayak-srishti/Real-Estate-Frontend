@@ -61,68 +61,61 @@ function UserEditProfile({url}) {
     }
     return (
         <div>
-            <div style={{ marginTop: '130px', marginBottom: '90px' }}>
-                <form onSubmit={Submit}>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-6 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '30px 15px 30px 15px', marginTop: '20px' }}>
-                                <div style={{ marginTop: '25px', marginBottom: '20px' }}>
-                                    <div className='row g-3'>
-                                        <div className='col-md-6'>
-                                            <label>Firstname</label>
-                                            <input type='text' className='form-control bg-light' onChange={Change} name='Firstname' value={vals.Firstname} placeholder={profile.firstname} />
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <label>Lastname</label>
-                                            <input type='text' className='form-control bg-light' onChange={Change} name='Lastname' value={vals.Lastname} placeholder={profile.lastname}/>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <label>Age</label>
-                                            <input type='number' className='form-control bg-light' onChange={Change} name='Age' value={vals.Age} placeholder={profile.age}/>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <label>DOB</label>
-                                            <input type='date' className='form-control bg-light' onChange={Change} name='DOB' value={vals.DOB} placeholder={profile.dob}/>
-                                        </div>
-                                        <div className='col-12'>
-                                            <label>Gender</label>
-                                            <select className='form-select bg-light' onChange={Change} name='Gender' value={vals.Gender} >
-                                                <option>{profile.gender}</option>
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>other</option>
-                                            </select>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <label>Phoneno</label>
-                                            <input type='number' className='form-control bg-light' onChange={Change} name='Phone' value={vals.Phone} placeholder={profile.phone}/>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <label>Email</label>
-                                            <input type='email' className='form-control bg-light' onChange={Change} name='Email' value={vals.Email} placeholder={profile.email}/>
-                                        </div>
-                                        <div className='col-12'>
-                                            <label>Address</label>
-                                            <textarea type='text' className='form-control bg-light' onChange={Change} name='Address' value={vals.Address} placeholder={profile.address}/>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <label>preview</label>
-                                            <div>
-                                                <img src={`${url}${profile.profile}`}/>
-                                            </div>
-                                            <input type='file'  className='form-control bg-light' onChange={Change} name='file' />
-                                        </div>
+        <div style={{ marginTop: '90px', marginBottom: '90px' }}>
+            <form onSubmit={Submit}>
+                <div className="container" >
+                    <div className="row">
+                        <div className="" style={{ backgroundColor: 'secondary', borderRadius: '30px 15px 30px 15px', marginTop: '20px' ,boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
+                            <div style={{ marginTop: '25px', marginBottom: '20px' }}>
+                                <div className='row g-3'>
+                                    <div className='col-md-6'>
+                                        <label>Firstname</label>
+                                        <input type='text' className='form-control bg-light' onChange={Change} name='Firstname' value={vals.Firstname} placeholder={profile.firstname} />
                                     </div>
-                                    <div className='col-md-6 mt-4 pt-3'>
-                                        <button className='btn btn-outline-success col-12' >Submit</button>
+                                    <div className='col-md-6'>
+                                        <label>Lastname</label>
+                                        <input type='text' className='form-control bg-light' onChange={Change} name='Lastname' value={vals.Lastname} placeholder={profile.lastname}/>
                                     </div>
+                                    <div className='col-md-6'>
+                                        <label>Age</label>
+                                        <input type='number' className='form-control bg-light' onChange={Change} name='Age' value={vals.Age} placeholder={profile.age}/>
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <label>DOB</label>
+                                        <input type='date' className='form-control bg-light' onChange={Change} name='DOB' value={vals.DOB} placeholder={profile.dob}/>
+                                    </div>
+                                    <div className='col-12'>
+                                        <label>Gender</label>
+                                        <select className='form-select bg-light' onChange={Change} name='Gender' value={vals.Gender} >
+                                            <option>{profile.gender}</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>other</option>
+                                        </select>
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <label>Phoneno</label>
+                                        <input type='number' className='form-control bg-light' onChange={Change} name='Phone' value={vals.Phone} placeholder={profile.phone}/>
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <label>Email</label>
+                                        <input type='email' className='form-control bg-light' onChange={Change} name='Email' value={vals.Email} placeholder={profile.email}/>
+                                    </div>
+                                    <div className='col-12'>
+                                        <label>Address</label>
+                                        <textarea type='text' className='form-control bg-light' onChange={Change} name='Address' value={vals.Address} placeholder={profile.address}/>
+                                    </div>
+                                </div>
+                                <div className='col-md-6 mt-4 pt-3'>
+                                    <button className='btn btn-outline-primary col-12' >Submit</button>
                                 </div>
                             </div>
                         </div>
-                    </div>-
-                </form>
-            </div>
+                    </div>
+                </div>-
+            </form>
         </div>
+    </div>
     )
 }
 

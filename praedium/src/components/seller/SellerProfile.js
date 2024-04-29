@@ -29,26 +29,42 @@ function UserProfile({url}) {
   }, []);
 
   return (
-    <div className=''><div className='container mt-5 pt-5'>
-    <div className='row' style={{ backgroundColor: 'whitesmoke', padding: '4% ', boxshadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;' }}>
-      <div className='col-6'>
-        <img src={`${url}${profile.profile}`}></img>
-      </div>
-      <div className='col-6'>
-        <p> Firstname :{profile.firstname} </p>
-        <p> lastname :{profile.lastname}</p>
-        <p> Age :{profile.age} </p>
-        <p> DOB :{profile.dob} </p>
-        <p> Gender :{profile.gender} </p>
-        <p> Phone :{profile.phone} </p>
-        <p> Email :{profile.email} </p>
-        <p> Address :{profile.address} </p>
-        <p> Username :{profile.username} </p>
-        <div><button className='btn btn-primary'><Link className='text-light text-decoration-none' to="/sellereditprofile">Edit</Link></button><button className='ms-5 btn btn-primary'>
-          <di className='text-light text-decoration-none' to="" onClick={logout}>Logout</di></button></div>
+    <div className='p-5 mt-5'>
+    <div className='container mt-5 pt-5'>
+      <div className='row' style={{
+        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+        backgroundColor: 'whitesmoke',
+        padding: '4% ',
+        boxshadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
+      }}>
+        <div className='col-12 text-center' style={{position:'relative'}}>
+          <img src={`${url}${profile.profile}`} alt="Profile" style={{ maxWidth: '200px', position:'absolute', left:'450px ' ,top:'-80px',borderRadius:'50px' ,height:'200px'}} />
+        </div>
+        <div className='col-5 ms-5 ps-5 mt-5'>
+          <p> Firstname: {profile.firstname} </p>
+          <p> Lastname: {profile.lastname}</p>
+          <p> Age: {profile.age} </p>
+          <p> DOB: {profile.dob} </p>
+          <p> Gender: {profile.gender} </p>
+        </div>
+        <div className='col-5 ms-5 mt-5 ps-5'>
+          <p> Phone: {profile.phone} </p>
+          <p> Email: {profile.email} </p>
+          <p> Address: {profile.address} </p>
+          <p> Username: {profile.username} </p>
+          <div className='mt-3'>
+          <button className='btn btn-primary'>
+            <Link className='text-light text-decoration-none' to={`/sellereditprofile/${localStorage.getItem("sellerId")}`}>Edit</Link>
+          </button>
+          <button className='ms-5 btn btn-primary' onClick={logout}>
+            Logout
+          </button>
+        </div>
+        </div>
       </div>
     </div>
-  </div></div>
+  </div>
+
   )
 }
 

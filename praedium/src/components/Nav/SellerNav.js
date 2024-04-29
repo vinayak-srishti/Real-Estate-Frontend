@@ -13,7 +13,7 @@ function SellerNav({url}) {
           },
         })
         .then(res=>{
-            console.log(res);
+            console.log(res.data);
             setProfile(res.data)
         })
         .catch(err=>{
@@ -30,7 +30,7 @@ function SellerNav({url}) {
 
 
     return (
-        <div ><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top">
+        <div ><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top" style={{boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
             <div class="container">
                 <a class="navbar-brand" href="sellerhome">Navbar w/ text</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,13 +53,12 @@ function SellerNav({url}) {
                             <img
                                 src={`${url}${profile.profile}`}
                                 alt="img"
-                                className="profileimg"
                                 style={{width:"50px",height:'50px',borderRadius:'50px'}}
                             ></img>
                         </Link>
                         <ul class="dropdown-menu">
-                            <li className=''><Link to="/userprofile" class="dropdown-item" href="User_login">Profile</Link></li>
-                            <li><button class="dropdown-item" href="seller_login" onClick={logout}>Logout</button></li>
+                            <li className=''><Link to={`/sellerprofile/${localStorage.getItem('userId')}`} class="dropdown-item" href="">Profile</Link></li>
+                            <li><button class="dropdown-item" href="" onClick={logout}>Logout</button></li>
                         </ul>
                     </div>
                 </div>

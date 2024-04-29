@@ -32,12 +32,12 @@ function Paymentform() {
                 propertyId: "5",
                 price: 45000,
               });
-              console.log(result)
+              console.log(result);
               if (result.status == 200) {
                 alert("Ordered successfully");
                 navigate("/orders");
               } else {
-                  alert("error while placing order");
+                alert("error while placing order");
               }
 
               console.log(result);
