@@ -29,7 +29,7 @@ function UserNav({url}) {
       }
 
     return (
-        <div><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top">
+        <div><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top" style={{boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
             <div class="container">
                 <a class="navbar-brand" href='/userhome' >Navbar w/ text</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@ function UserNav({url}) {
                             ></img>
                         </Link>
                         <ul class="dropdown-menu">
-                            <li className=''><Link to="/userprofile" class="dropdown-item" href="User_login">Profile</Link></li>
+                            <li className=''><Link to={`/userprofile`} class="dropdown-item" href="">Profile</Link></li>
                             <li><button class="dropdown-item" href="seller_login" onClick={logout}>Logout</button></li>
                         </ul>
                     </div>
