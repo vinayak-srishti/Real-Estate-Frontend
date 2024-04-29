@@ -59,7 +59,7 @@ function UserNav({url}) {
                                 src={`${url}${profile.profile}`}
                                 alt="img"
                                 className="profileimg"
-                                style={{width:"50px",height:'50px'}}
+                                style={{width:"50px",height:'50px',borderRadius:'50px'}}
                             ></img>
                         </Link>
                         <ul class="dropdown-menu">

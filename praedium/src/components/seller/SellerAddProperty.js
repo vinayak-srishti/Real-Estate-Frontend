@@ -5,7 +5,7 @@ import axiosInstance from '../../baseURL'
 
 
 function SellerAddProperty() {
-    const [vals, setvals] = useState({ lat: '', log: '', district: '', city: '', type: '', landmark: '', features: '', price: '', area: '', file: '', sid:"34" })
+    const [vals, setvals] = useState({ lat: '', log: '', district: '', city: '', type: '', landmark: '', features: '', price: '', area: '', file: '' ,sid:'' })
     const navigate=useNavigate()
 
     const Change = (a) => {
@@ -30,7 +30,7 @@ function SellerAddProperty() {
         formData.append("price", vals.price);
         formData.append("area", vals.area);
         formData.append("file", vals.file);
-        // formData.append("sid", localStorage.getItem('sellerId'));
+        formData.append("sid", localStorage.getItem('sellerId'));
 
         axiosInstance.post('/Seller/AddProperty',formData, {
             headers: {
