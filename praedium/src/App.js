@@ -45,6 +45,7 @@ import BuyerPropertyBasedMessage from "./components/User/BuyerPropertyBasedMessa
 import AdminLogin from "./components/Admin/AdminLogin.js";
 import OrderList from "./components/Admin/OrderList.js";
 import UserList from "./components/Admin/UserList.js";
+import AdminHome from "./components/Admin/AdminHome.js";
 
 function App() {
   const url = "http://localhost:8081/";
@@ -261,6 +262,12 @@ function App() {
               <Foot />,
             ]}
           />
+
+          <Route
+            path="/adminDashboard"
+            element={[<AdminNav url={url} />, <AdminHome url={url}/>, <Foot />]}
+          />
+
         </Routes>
       </div>
     </BrowserRouter>
