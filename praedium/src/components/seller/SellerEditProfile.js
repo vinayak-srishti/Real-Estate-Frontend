@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axiosInstance from '../../baseURL'
+import { useNavigate } from 'react-router-dom';
 
 
 function UserEditProfile({url}) {
     const [profile, setProfile] = useState([]);
     const [vals, setvals] = useState({ firstname: '', lastname: '', age: '', dob: '', gender: '', phone: '', email: '', address: '', file: '' })
 
+const navigate=useNavigate()
 
   useEffect(() => {
     axiosInstance.get('/Seller/profileView/' + localStorage.getItem("sellerId"),  {
@@ -53,7 +55,7 @@ function UserEditProfile({url}) {
         .then(res=>{
             console.log(res);
             alert(res.data)
-            // navigate("/properties")
+            navigate("/sellerprofile/" + localStorage.getItem("sellerId"))
         })
         .catch(err=>{
             console.log(err);

@@ -2,7 +2,7 @@ import React from 'react'
 
 function UserList() {
   return (
-    <div>UserList</div>
+    <div></div>
   )
 }
 

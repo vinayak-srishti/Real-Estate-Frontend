@@ -69,17 +69,7 @@ const params = useParams();
   const navigate=useNavigate()
   
   return (
-    <section className="msger">
-  <header className="msger-header">
-    <div className="msger-header-title">
-      <i className="fas fa-comment-alt" /> 
-    </div>
-    <div className="msger-header-options">
-      <span>
-        <i className="fas fa-cog" />
-      </span>
-    </div>
-  </header>
+    <section className="msger mt-5 pt-5">
   <main className="msger-chat">
   {msg.map((msgContainer, index) => (
     msgContainer.messagefrom && msgContainer.messagefrom == 'buyer' ?  <div className="msg right-msg">

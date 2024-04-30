@@ -96,7 +96,7 @@ const params = useParams();
     </div>
   </div>
   :
-  <div className="msg left-msg">
+  <div className="msg left-msg mt-5 pt-5">
       <img
         className="msg-img"
         src={imgLeft}
