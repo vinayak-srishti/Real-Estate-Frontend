@@ -9,18 +9,33 @@ function Paymentform() {
   const [creaditcardnumber, setCredictcardnumber] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [CVV, setCVV] = useState("");
+  const [property, setProperty] = useState("");
 
   const enteredDateObj = new Date(expirationDate);
   const currentDate = new Date();
 
-  const { id } = useParams();
   const navigate = useNavigate();
 
   const params = useParams();
-  const productid = params.id;
+  const productid = params.id.split('_')[0];
+  const sid = params.id.split('_')[1];
+
+  useEffect(() => {
+    async function fetchData() {
+        var property = await axiosInstance
+        .get("/Seller/property" + productid, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        setProperty(property.data)
+        } 
+    
+    fetchData()
+      
+  }, []);
 
   const handlePayment = async () => {
-    console.log(productid);
     if (cardholdername.length > 3) {
       if (creaditcardnumber.length == 16) {
         if (enteredDateObj > currentDate) {
@@ -28,9 +43,9 @@ function Paymentform() {
             try {
               const result = await axiosInstance.post("/message/order", {
                 buyerId: localStorage.getItem("userId"),
-                sellerId: "7",
-                propertyId: "5",
-                price: 45000,
+                sellerId: sid,
+                propertyId: productid,
+                price: property.price,
               });
               console.log(result);
               if (result.status == 200) {

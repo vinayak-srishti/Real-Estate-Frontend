@@ -14,20 +14,21 @@ function UserEditProfile({ url }) {
       .then((res) => {
         console.log(res);
         setProfile(res.data);
+        setvals(res.data)
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
   const [vals, setvals] = useState({
-    Firstname: "",
-    Lastname: "",
-    Age: "",
-    DOB: "",
-    Gender: "",
-    Phone: "",
-    Email: "",
-    Address: "",
+    firstname: "",
+    lastname: "",
+    age: "",
+    dob: "",
+    gender: "",
+    phone: "",
+    email: "",
+    address: "",
     file: "",
   });
   const Change = (a) => {
@@ -41,17 +42,17 @@ function UserEditProfile({ url }) {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("firstname", vals.Firstname);
-    formData.append("lastname", vals.Lastname);
-    formData.append("age", vals.Age);
-    formData.append("email", vals.Email);
-    formData.append("phone", vals.Phone);
-    formData.append("dob", vals.DOB);
-    formData.append("gender", vals.Gender);
-    formData.append("password", vals.Password);
+    formData.append("firstname", vals.firstname);
+    formData.append("lastname", vals.lastname);
+    formData.append("age", vals.age);
+    formData.append("email", vals.email);
+    formData.append("phone", vals.phone);
+    formData.append("dob", vals.dob);
+    formData.append("gender", vals.gender);
+    formData.append("password", vals.password);
     formData.append("file", vals.file);
     formData.append("username", vals.username);
-    formData.append("address", vals.Address);
+    formData.append("address", vals.address);
 
     axiosInstance
       .put("/user/updateBuyer/" + localStorage.getItem("userId"), formData, {
@@ -92,8 +93,7 @@ function UserEditProfile({ url }) {
                         type="text"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="Firstname"
-                        value={vals.Firstname}
+                        name="firstname"
                         placeholder={profile.firstname}
                       />
                     </div>
@@ -103,19 +103,17 @@ function UserEditProfile({ url }) {
                         type="text"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="Lastname"
-                        value={vals.Lastname}
+                        name="lastname"
                         placeholder={profile.lastname}
                       />
                     </div>
                     <div className="col-md-6">
                       <label>Age</label>
                       <input
-                        type="number"
+                        type="text"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="Age"
-                        value={vals.Age}
+                        name="age"
                         placeholder={profile.age}
                       />
                     </div>
@@ -125,8 +123,8 @@ function UserEditProfile({ url }) {
                         type="date"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="DOB"
-                        value={vals.DOB}
+                        name="dob"
+                        value={vals.dob}
                         placeholder={profile.dob}
                       />
                     </div>
@@ -135,8 +133,7 @@ function UserEditProfile({ url }) {
                       <select
                         className="form-select bg-light"
                         onChange={Change}
-                        name="Gender"
-                        value={vals.Gender}
+                        name="gender"
                       >
                         <option>{profile.gender}</option>
                         <option>Male</option>
@@ -150,8 +147,7 @@ function UserEditProfile({ url }) {
                         type="number"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="Phone"
-                        value={vals.Phone}
+                        name="phone"
                         placeholder={profile.phone}
                       />
                     </div>
@@ -161,8 +157,7 @@ function UserEditProfile({ url }) {
                         type="email"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="Email"
-                        value={vals.Email}
+                        name="email"
                         placeholder={profile.email}
                       />
                     </div>
@@ -172,8 +167,7 @@ function UserEditProfile({ url }) {
                         type="text"
                         className="form-control bg-light"
                         onChange={Change}
-                        name="Address"
-                        value={vals.Address}
+                        name="address"
                         placeholder={profile.address}
                       />
                     </div>

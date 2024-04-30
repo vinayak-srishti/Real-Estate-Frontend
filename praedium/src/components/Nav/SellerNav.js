@@ -45,7 +45,7 @@ function SellerNav({url}) {
                             <Link to="/sellermessage" class="nav-link active" aria-current="page" href="#"> Message</Link>
                         </li>
                         <li class="nav-item">
-                            <Link to="/userorder" class="nav-link active" aria-current="page" href="#">Orders</Link>
+                            <Link to="/sellerorder" class="nav-link active" aria-current="page" href="#">Orders</Link>
                         </li>
                     </ul>
                     <div class="dropdown " style={{ marginRight: '10px' }}>

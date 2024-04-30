@@ -23,6 +23,7 @@ import CommonNav from "./components/Nav/CommonNav.js";
 import AdminNav from "./components/Nav/AdminNav.js";
 import UserProfile from "./components/User/UserProfile.js";
 import UserOrders from "./components/seller/UserOrders.js";
+import SellerVeiwChat from "./components/seller/SellerVeiwChat.js";
 import Orders from "./components/User/Orders.js";
 import SellersList from "./components/User/SellersList.js";
 import UserCart from "./components/User/UserCart.js";
@@ -40,6 +41,7 @@ import LandingPage from "./components/LandingPage.js";
 import UserEditProfile from "./components/User/UserEditProfile.js";
 import SellerHomePage from "./components/seller/SellerHomePage.js";
 import Paymentform from "./components/User/Paymentform.js";
+import BuyerPropertyBasedMessage from "./components/User/BuyerPropertyBasedMessage.js";
 
 function App() {
   const url = "http://localhost:8081/";
@@ -168,7 +170,7 @@ function App() {
             ]}
           />
           <Route
-            path="/userorder"
+            path="/sellerorder"
             element={[<SellerNav url={url} />, <UserOrders url={url}/>, <Foot />]}
           />
           <Route
@@ -195,7 +197,16 @@ function App() {
             path="/sellerhome"
             element={[<SellerNav url={url} />, <SellerHomePage url={url}/>, <Foot />]}
           />
+          <Route
+            path="/buyerPropertyBasedMessage/:id"
+            element={[<UserNav url={url} />, <BuyerPropertyBasedMessage url={url}/>, <Foot />]}
+          />
+          <Route
+            path="/sellerVeiwChat/:id"
+            element={[<SellerNav url={url} />, <SellerVeiwChat url={url}/>, <Foot />]}
+          />
         </Routes>
+        
       </div>
     </BrowserRouter>
   );
