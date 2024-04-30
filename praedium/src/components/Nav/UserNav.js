@@ -43,9 +43,9 @@ function UserNav({url}) {
                         <li class="nav-item">
                             <Link to="/sellerlist" class="nav-link active" aria-current="page" >Sellers</Link>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                             <Link to="/usermessage" class="nav-link active" aria-current="page" > Message</Link>
-                        </li>
+                        </li> */}
                         <li class="nav-item">
                             <Link to="/orders" class="nav-link active" aria-current="page" >Orders</Link>
                         </li>

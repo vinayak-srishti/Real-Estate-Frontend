@@ -43,7 +43,10 @@ function UserOrders({url}) {
 
   return (
     <div className='mt-5 pt-5' ><div className=' container'>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+          {msg && msg.length > 0 ?<div>
+
+      <h3 className="text-center p-3">Orders</h3>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
     {msg.map((listing, index) => (
       <div class="col">
         <div class="card">
@@ -57,14 +60,16 @@ function UserOrders({url}) {
             <p class="card-text">Latitude : {listing.lat }</p>
             <p class="card-text">Amount : {listing.price}</p>
           </div>
+          <div className="card text-center p-2">
           <h6>Buyer Details</h6>
           <div>Name : {listing.firstname}</div>
           <div>phone : {listing.phone}</div>
           <div>email : {listing.email}</div>
         </div>
+        </div>
       </div>
     ))}
-   </div></div></div>
+   </div></div>:'no orders found'}</div></div>
   )
 }
 

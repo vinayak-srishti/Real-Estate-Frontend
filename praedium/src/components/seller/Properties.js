@@ -31,6 +31,9 @@ function Properties({url}) {
   return (
     <div className=' container mt-5 pt-5'>
       <div className='text-center m-5'><button className='btn btn-secondary'><Link className='text-light text-decoration-none' to="/addproperty"><AiFillPlusCircle/> Add A Property</Link> </button></div>
+      {propertyListings && propertyListings.length > 0 ?
+      <div>
+<h4 className='pb-3'>my properties</h4>
       <div class="row row-cols-1 row-cols-md-4 g-4">
       {propertyListings.map((listing, index) => (
         <div class="col">
@@ -48,7 +51,7 @@ function Properties({url}) {
         </div>
       </div>
       ))}
-      </div></div>
+      </div></div>:' no property available'}</div>
   )
 }
 

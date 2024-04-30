@@ -11,9 +11,7 @@ function AdminNav() {
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
-                <li class="nav-item">
-                    <Link to="/about" class="nav-link active" aria-current="page" href="#">About</Link>
-                </li>
+                
             </ul>
                 <button class="btn btn-outline-primary rounded-4" type="button"  aria-expanded="false">
                     Login

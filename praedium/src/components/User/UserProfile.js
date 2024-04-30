@@ -38,7 +38,7 @@ function UserProfile({url}) {
   <div className='container mt-5 pt-5'>
     <div className='row' style={{
       boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-      backgroundColor: 'whitesmoke',
+      backgroundColor: '',
       padding: '4% ',
       boxshadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
     }}>

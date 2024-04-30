@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../baseURL";
+import { useNavigate } from "react-router-dom";
 
 function UserEditProfile({ url }) {
   const [profile, setProfile] = useState([]);
@@ -38,6 +39,7 @@ function UserEditProfile({ url }) {
       setvals({ ...vals, [a.target.name]: a.target.value });
     }
   };
+  const navigate=useNavigate()
   const Submit = (e) => {
     e.preventDefault();
 
@@ -63,7 +65,7 @@ function UserEditProfile({ url }) {
       .then((res) => {
         console.log(res);
         alert(res.data);
-        // navigate("/properties")
+        navigate("/userprofile")
       })
       .catch((err) => {
         console.log(err);

@@ -40,10 +40,11 @@ function SellerMessage({url}) {
       }
       fetch();
     },[])
+    console.log(msg);
 
     return (
-      <section className="msger">
-    <header className="msger-header">
+      <section className="container mt-5 pt-5">
+    {/* <header className="msger-header">
       <div className="msger-header-title">
         <i className="fas fa-comment-alt" /> 
       </div>
@@ -52,23 +53,31 @@ function SellerMessage({url}) {
           <i className="fas fa-cog" />
         </span>
       </div>
-    </header>
-    <main className="msger-chat">
-    <h1>Message</h1>
+    </header> */}
+          {msg && msg.length > 0 ?
+
+    <main className="">
+    <h3>Messages</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
     {msg.map((msgContainer, index) => (
-      <div style={{border:"1px solid black"}}>
-        <h2>Chat with {msgContainer.firstname + msgContainer.lastname} <span><img style={{height:"75px", width:"75px"}} src={`${url}${msgContainer.profile}`}/></span></h2>
+              <div class="col">
+      <div className="card p-1" style={{border:"1px solid black"}}>
+        <h4> <span><img style={{height:"75px", width:"75px",borderRadius:'50px'}} src={`${url}${msgContainer.profile}`}/></span>Chat with {msgContainer.firstname + msgContainer.lastname}</h4>
         <div class="card-body">
-          <h5 class="card-title">Property <span><img style={{height:"75px", width:"75px"}} src={`${url}${msgContainer.pic}`}/></span></h5>
-          <span class="card-title">name : {msgContainer.city}   </span> 
-          <span class="card-text">  price : {msgContainer.price}</span>
-          <span><button onClick={()=>handleClick(msgContainer.propertyId,msgContainer.sellerId, msgContainer.buyerId)} >View Chat</button></span>
+          <h5 class="card-title me-5">Property <span><img style={{height:"75px", width:"75px",marginLeft:'100px'}}  src={`${url}${msgContainer.pic}`}/></span></h5>
+          <span class="card-title">City name : {msgContainer.city}   </span> 
+           <p>District : {msgContainer.district}</p>
+            <p>Price : {msgContainer.price} /-</p>
+          <div></div>
+          <button className="btn btn-primary" onClick={()=>handleClick(msgContainer.propertyId,msgContainer.sellerId, msgContainer.buyerId)} >View Chat</button>
         </div>
-      </div>    
+      </div>   
+      </div> 
     ))}
+    </div>
       
       
-    </main>
+    </main>:'no messages found'}
     
   </section>
   
