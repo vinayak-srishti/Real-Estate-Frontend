@@ -1,8 +1,9 @@
 import React from 'react'
+import SellersList from '../User/SellersList'
 
 function SellerList() {
   return (
-    <div>SellerList</div>
+    <div><SellersList/></div>
   )
 }
 

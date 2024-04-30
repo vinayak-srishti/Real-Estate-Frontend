@@ -41,7 +41,6 @@ function SellersList({url}) {
             <th>gender</th>
             <th>email</th>
             <th>address</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -55,7 +54,6 @@ function SellersList({url}) {
           <td>{items.gender}</td>
           <td>{items.email}</td>
           <td>{items.address}</td>
-          <td><button className="btn btn-primary">Message</button></td>
         </tr>
 
           ))

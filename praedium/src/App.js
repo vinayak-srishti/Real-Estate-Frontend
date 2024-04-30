@@ -42,6 +42,9 @@ import UserEditProfile from "./components/User/UserEditProfile.js";
 import SellerHomePage from "./components/seller/SellerHomePage.js";
 import Paymentform from "./components/User/Paymentform.js";
 import BuyerPropertyBasedMessage from "./components/User/BuyerPropertyBasedMessage.js";
+import AdminLogin from "./components/Admin/AdminLogin.js";
+import OrderList from "./components/Admin/OrderList.js";
+import UserList from "./components/Admin/UserList.js";
 
 function App() {
   const url = "http://localhost:8081/";
@@ -68,7 +71,24 @@ function App() {
           {/* <Route path='/Owl' element={<Owlcarsol/>}/> */}
           {/* <Route path='/whole' element={[<CommonNav />, <Owlcarsol />, <Body />, <Foot />]} /> */}
 
-          <Route path="/admin" element={[<AdminNav />, <Adminn />]} />
+          <Route path="/admin" element={[<AdminNav />, <AdminLogin />]} />
+          <Route
+            path="/sellerslist"
+            element={[<AdminNav />, <SellersList url={url} />]}
+          />
+          <Route
+            path="/orderlist"
+            element={[<AdminNav />, <OrderList url={url} />]}
+          />
+          <Route
+            path="/userslist"
+            element={[<AdminNav />, <UserList url={url} />]}
+          />
+          <Route
+            path="/propertylist"
+            element={[<AdminNav />, <PropertiesList url={url} />]}
+          />
+
           <Route path="/about" element={[<CommonNav />, <About />, <Foot />]} />
           <Route
             path="/contact"
@@ -133,7 +153,11 @@ function App() {
           />
           <Route
             path="/usermessage"
-            element={[<UserNav url={url} />, <UserMesssage url={url} />, <Foot />]}
+            element={[
+              <UserNav url={url} />,
+              <UserMesssage url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/propertieslist"
@@ -151,7 +175,11 @@ function App() {
           {/* seller */}
           <Route
             path="/sellermessage"
-            element={[<SellerNav url={url} />, <SellerMessage url={url} />, <Foot />]}
+            element={[
+              <SellerNav url={url} />,
+              <SellerMessage url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/properties"
@@ -171,19 +199,35 @@ function App() {
           />
           <Route
             path="/sellerorder"
-            element={[<SellerNav url={url} />, <UserOrders url={url}/>, <Foot />]}
+            element={[
+              <SellerNav url={url} />,
+              <UserOrders url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/addproperty"
-            element={[<SellerNav url={url} />, <SellerAddProperty url={url} />, <Foot />]}
+            element={[
+              <SellerNav url={url} />,
+              <SellerAddProperty url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/sellereditprofile/:id"
-            element={[<SellerNav url={url} />, <SellerEditProfile url={url}/>, <Foot />]}
+            element={[
+              <SellerNav url={url} />,
+              <SellerEditProfile url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/userhome"
-            element={[<UserNav url={url} />, <UserHomePage url={url}/>, <Foot />]}
+            element={[
+              <UserNav url={url} />,
+              <UserHomePage url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/usereditprofile/:id"
@@ -195,18 +239,29 @@ function App() {
           />
           <Route
             path="/sellerhome"
-            element={[<SellerNav url={url} />, <SellerHomePage url={url}/>, <Foot />]}
+            element={[
+              <SellerNav url={url} />,
+              <SellerHomePage url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/buyerPropertyBasedMessage/:id"
-            element={[<UserNav url={url} />, <BuyerPropertyBasedMessage url={url}/>, <Foot />]}
+            element={[
+              <UserNav url={url} />,
+              <BuyerPropertyBasedMessage url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
             path="/sellerVeiwChat/:id"
-            element={[<SellerNav url={url} />, <SellerVeiwChat url={url}/>, <Foot />]}
+            element={[
+              <SellerNav url={url} />,
+              <SellerVeiwChat url={url} />,
+              <Foot />,
+            ]}
           />
         </Routes>
-        
       </div>
     </BrowserRouter>
   );
