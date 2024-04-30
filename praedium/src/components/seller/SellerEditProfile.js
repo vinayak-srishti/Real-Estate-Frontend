@@ -4,6 +4,8 @@ import axiosInstance from '../../baseURL'
 
 function UserEditProfile({url}) {
     const [profile, setProfile] = useState([]);
+    const [vals, setvals] = useState({ firstname: '', lastname: '', age: '', dob: '', gender: '', phone: '', email: '', address: '', file: '' })
+
 
   useEffect(() => {
     axiosInstance.get('/Seller/profileView/' + localStorage.getItem("sellerId"),  {
@@ -14,12 +16,12 @@ function UserEditProfile({url}) {
     .then(res=>{
         console.log(res);
         setProfile(res.data)
+        setvals(res.data)
     })
     .catch(err=>{
         console.log(err);
     })
   }, []);
-    const [vals, setvals] = useState({ Firstname: '', Lastname: '', Age: '', DOB: '', Gender: '', Phone: '', Email: '', Address: '', file: '' })
     const Change = (a) => {
         if (a.target.name == "file") {
             setvals({ ...vals, file: a.target.files[0] });
@@ -31,17 +33,17 @@ function UserEditProfile({url}) {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append("firstname", vals.Firstname);
-        formData.append("lastname", vals.Lastname);
-        formData.append("age", vals.Age);
-        formData.append("email", vals.Email);
-        formData.append("phone", vals.Phone);
-        formData.append("dob", vals.DOB);
-        formData.append("gender", vals.Gender);
-        formData.append("password", vals.Password);
+        formData.append("firstname", vals.firstname);
+        formData.append("lastname", vals.lastname);
+        formData.append("age", vals.age);
+        formData.append("email", vals.email);
+        formData.append("phone", vals.phone);
+        formData.append("dob", vals.dob);
+        formData.append("gender", vals.gender);
+        formData.append("password", vals.password);
         formData.append("file", vals.file);
         formData.append("username", vals.username);
-        formData.append("address", vals.Address);
+        formData.append("address", vals.address);
 
         axiosInstance.put('/Seller/updateSeller/' + localStorage.getItem("sellerId"),formData,  {
             headers: {
@@ -70,23 +72,23 @@ function UserEditProfile({url}) {
                                 <div className='row g-3'>
                                     <div className='col-md-6'>
                                         <label>Firstname</label>
-                                        <input type='text' className='form-control bg-light' onChange={Change} name='Firstname' value={vals.Firstname} placeholder={profile.firstname} />
+                                        <input type='text' className='form-control bg-light' onChange={Change} name='firstname' placeholder={profile.firstname} />
                                     </div>
                                     <div className='col-md-6'>
                                         <label>Lastname</label>
-                                        <input type='text' className='form-control bg-light' onChange={Change} name='Lastname' value={vals.Lastname} placeholder={profile.lastname}/>
+                                        <input type='text' className='form-control bg-light' onChange={Change} name='lastname' placeholder={profile.lastname}/>
                                     </div>
                                     <div className='col-md-6'>
                                         <label>Age</label>
-                                        <input type='number' className='form-control bg-light' onChange={Change} name='Age' value={vals.Age} placeholder={profile.age}/>
+                                        <input type='text' className='form-control bg-light' onChange={Change} name='age' placeholder={profile.age}/>
                                     </div>
                                     <div className='col-md-6'>
                                         <label>DOB</label>
-                                        <input type='date' className='form-control bg-light' onChange={Change} name='DOB' value={vals.DOB} placeholder={profile.dob}/>
+                                        <input type='date' className='form-control bg-light' onChange={Change} name='dob' value={vals.dob} placeholder={profile.dob}/>
                                     </div>
                                     <div className='col-12'>
                                         <label>Gender</label>
-                                        <select className='form-select bg-light' onChange={Change} name='Gender' value={vals.Gender} >
+                                        <select className='form-select bg-light' onChange={Change} name='gender' >
                                             <option>{profile.gender}</option>
                                             <option>Male</option>
                                             <option>Female</option>
@@ -95,15 +97,15 @@ function UserEditProfile({url}) {
                                     </div>
                                     <div className='col-md-6'>
                                         <label>Phoneno</label>
-                                        <input type='number' className='form-control bg-light' onChange={Change} name='Phone' value={vals.Phone} placeholder={profile.phone}/>
+                                        <input type='number' className='form-control bg-light' onChange={Change} name='phone'  placeholder={profile.phone}/>
                                     </div>
                                     <div className='col-md-6'>
                                         <label>Email</label>
-                                        <input type='email' className='form-control bg-light' onChange={Change} name='Email' value={vals.Email} placeholder={profile.email}/>
+                                        <input type='email' className='form-control bg-light' onChange={Change} name='email'  placeholder={profile.email}/>
                                     </div>
                                     <div className='col-12'>
                                         <label>Address</label>
-                                        <textarea type='text' className='form-control bg-light' onChange={Change} name='Address' value={vals.Address} placeholder={profile.address}/>
+                                        <textarea type='text' className='form-control bg-light' onChange={Change} name='address' placeholder={profile.address}/>
                                     </div>
                                 </div>
                                 <div className='col-md-6 mt-4 pt-3'>

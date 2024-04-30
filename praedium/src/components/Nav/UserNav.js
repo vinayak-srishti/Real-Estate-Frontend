@@ -47,9 +47,6 @@ function UserNav({url}) {
                             <Link to="/usermessage" class="nav-link active" aria-current="page" > Message</Link>
                         </li>
                         <li class="nav-item">
-                            <Link to="/usercart" class="nav-link active" aria-current="page" >Cart</Link>
-                        </li>
-                        <li class="nav-item">
                             <Link to="/orders" class="nav-link active" aria-current="page" >Orders</Link>
                         </li>
                     </ul>

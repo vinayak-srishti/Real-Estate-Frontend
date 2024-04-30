@@ -30,13 +30,11 @@ function PropertiesList({ url }) {
   }, []);
 
   const navigate=useNavigate()
-  const handleMessage=(id)=>{
-   
-
+  const handleMessage=(id,sid)=>{
+    navigate(`/buyerPropertyBasedMessage/${id+'_'+sid}`)
   }
-  const HandleOrder=(id)=>{
-    console.log(id);
-    navigate(`/payment/${id}`)
+  const HandleOrder=(id,sid)=>{
+    navigate(`/payment/${id+'_'+sid}`)
   }
   return (
     <div className=" container mt-5 pt-5" style={{height:'100vh'}}>
@@ -58,8 +56,8 @@ function PropertiesList({ url }) {
                 <p class="card-text">Longitude : {listing.log}</p>
                 <p class="card-text">Latitude : {listing.lat}</p>
                 <p class="card-text">Amount : {listing.price}</p>
-                <button onClick={()=>HandleOrder(listing.propertyId,listing.price,listing.sellerId)} className="btn btn-primary">Order</button>
-                <button onClick={()=>handleMessage(listing.propertyId)} className="btn btn-primary ms-5">Message</button>
+                <button onClick={()=>HandleOrder(listing.propertyId,listing.sellerId)} className="btn btn-primary">Order</button>
+                <button onClick={()=>handleMessage(listing.propertyId,listing.sellerId)} className="btn btn-primary ms-5">Message</button>
               </div>
             </div>
           </div>
