@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let mail = "admin";
+  let mail = "admin@gmail.com";
   let pass = "admin123";
 
   let navigate = useNavigate();
@@ -12,21 +13,21 @@ function AdminLogin() {
   const doLogin = (e) => {
     e.preventDefault();
 
-    // const values={email: email, password: password}
-    // console.log(values);
+    const values = { email: email, password: password };
+    console.log(values);
     if (mail == email && pass == password) {
-      toast.success("Loggedin Successfully");
+      alert("Loggedin Successfully");
       localStorage.setItem("admin", 1);
-      navigate("/admin-dashboard");
+      navigate("/adminDashboard");
     } else {
-      toast.error("Username or Password is incorrect");
+      alert("Username or Password is incorrect");
     }
   };
 
   return (
     <div>
       <div>
-        <form onSubmit={Submit}>
+        <form onSubmit={doLogin}>
           <div className="continer" style={{ marginTop: "100px" }}>
             <div className="row justify-content-center p-2">
               <div className="col-sm-6 col-md-6">
@@ -38,12 +39,12 @@ function AdminLogin() {
                       class="form-control"
                       placeholder="Username"
                       name="Username"
-                      value={vals.Username}
+                      value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
                     />
-                    <label>Username</label>
+                    <label>Email</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input
@@ -51,7 +52,7 @@ function AdminLogin() {
                       class="form-control"
                       placeholder="Password"
                       name="Password"
-                      value={vals.Password}
+                      value={password}
                       onChange={(e) => {
                         setPassword(e.target.value);
                       }}
@@ -62,9 +63,6 @@ function AdminLogin() {
                     <button className="col-3 btn btn-primary btn-lg">
                       Login
                     </button>
-                    <a href="#" className=" col-5 d-flex justify-content-end">
-                      Forgot password?
-                    </a>
                   </div>
                 </div>
               </div>

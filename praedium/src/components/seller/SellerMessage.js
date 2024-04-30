@@ -43,7 +43,7 @@ function SellerMessage({url}) {
     console.log(msg);
 
     return (
-      <section className="container mt-5 pt-5">
+      <section className="container mt-5 pt-5" style={{height:'100vh'}}>
     {/* <header className="msger-header">
       <div className="msger-header-title">
         <i className="fas fa-comment-alt" /> 

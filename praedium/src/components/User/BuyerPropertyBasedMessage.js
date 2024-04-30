@@ -69,8 +69,8 @@ const params = useParams();
   const navigate=useNavigate()
   
   return (
-    <section className="msger mt-5 pt-5">
-  <main className="msger-chat">
+    <section className="container msger mt-5 pt-5" style={{height:"90vh"}}>
+  <main className="container msger-chat">
   {msg.map((msgContainer, index) => (
     msgContainer.messagefrom && msgContainer.messagefrom == 'buyer' ?  <div className="msg right-msg">
     <img

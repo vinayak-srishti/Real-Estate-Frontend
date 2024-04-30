@@ -55,14 +55,14 @@ function UserProfile({ url }) {
               }}
             />
           </div>
-          <div className="col-5 ms-5 ps-5 mt-5">
+          <div className="col-5 ms-5 ps-5 mt-5 pt-5">
             <p> Firstname: {profile.firstname} </p>
             <p> Lastname: {profile.lastname}</p>
             <p> Age: {profile.age} </p>
             <p> DOB: {profile.dob} </p>
             <p> Gender: {profile.gender} </p>
           </div>
-          <div className="col-5 ms-5 mt-5 ps-5">
+          <div className="col-5 ms-5 mt-5 ps-5 pt-5">
             <p> Phone: {profile.phone} </p>
             <p> Email: {profile.email} </p>
             <p> Address: {profile.address} </p>

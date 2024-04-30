@@ -69,7 +69,7 @@ const params = useParams();
   const navigate=useNavigate()
   
   return (
-    <section className="msger">
+    <section className="container msger" style={{height:"90vh"}}>
   <header className="msger-header">
     <div className="msger-header-title">
       <i className="fas fa-comment-alt" /> 
@@ -80,7 +80,7 @@ const params = useParams();
       </span>
     </div>
   </header>
-  <main className="msger-chat">
+  <main className="container msger-chat">
   {msg.map((msgContainer, index) => (
     msgContainer.messagefrom && msgContainer.messagefrom == 'seller' ?  <div className="msg right-msg">
     <img

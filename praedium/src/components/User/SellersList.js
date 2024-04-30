@@ -31,6 +31,8 @@ function SellersList({url}) {
     <div className="container mt-5 pt-5" style={{height:'100vh'}}>
       {" "}
       {sellersListings && sellersListings.length > 0 ?
+      <div>       <h5 className="text-center pb-2">Seller list</h5>
+
         <Table striped bordered hover variant="light">
         <thead>
           <tr>
@@ -41,7 +43,6 @@ function SellersList({url}) {
             <th>gender</th>
             <th>email</th>
             <th>address</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -55,13 +56,12 @@ function SellersList({url}) {
           <td>{items.gender}</td>
           <td>{items.email}</td>
           <td>{items.address}</td>
-          <td><button className="btn btn-primary">Message</button></td>
         </tr>
 
           ))
         }
         </tbody>
-      </Table>
+      </Table></div>
       : "No sellers" 
       }
       
