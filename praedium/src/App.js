@@ -42,6 +42,7 @@ import UserEditProfile from "./components/User/UserEditProfile.js";
 import SellerHomePage from "./components/seller/SellerHomePage.js";
 import Paymentform from "./components/User/Paymentform.js";
 import BuyerPropertyBasedMessage from "./components/User/BuyerPropertyBasedMessage.js";
+import AdminHome from "./components/Admin/AdminHome.js";
 
 function App() {
   const url = "http://localhost:8081/";
@@ -205,6 +206,12 @@ function App() {
             path="/sellerVeiwChat/:id"
             element={[<SellerNav url={url} />, <SellerVeiwChat url={url}/>, <Foot />]}
           />
+
+          <Route
+            path="/adminDashboard"
+            element={[<AdminNav url={url} />, <AdminHome url={url}/>, <Foot />]}
+          />
+
         </Routes>
         
       </div>
