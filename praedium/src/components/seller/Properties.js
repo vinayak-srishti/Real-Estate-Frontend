@@ -29,7 +29,7 @@ function Properties({url}) {
   }, []);
 
   return (
-    <div className=' container mt-5 pt-5'>
+    <div className=' container mt-5 pt-5' style={{height:'150vh'}}>
       <div className='text-center m-5'><button className='btn btn-secondary'><Link className='text-light text-decoration-none' to="/addproperty"><AiFillPlusCircle/> Add A Property</Link> </button></div>
       {propertyListings && propertyListings.length > 0 ?
       <div>

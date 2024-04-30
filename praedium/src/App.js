@@ -46,6 +46,8 @@ import AdminLogin from "./components/Admin/AdminLogin.js";
 import OrderList from "./components/Admin/OrderList.js";
 import UserList from "./components/Admin/UserList.js";
 import AdminHome from "./components/Admin/AdminHome.js";
+import AdminMainNav from "./components/Nav/AdminMainNav.js";
+import PropertyList from "./components/Admin/PropertyList.js";
 
 function App() {
   const url = "http://localhost:8081/";
@@ -72,22 +74,14 @@ function App() {
           {/* <Route path='/Owl' element={<Owlcarsol/>}/> */}
           {/* <Route path='/whole' element={[<CommonNav />, <Owlcarsol />, <Body />, <Foot />]} /> */}
 
-          <Route path="/admin" element={[<AdminNav />, <AdminLogin />]} />
-          <Route
-            path="/sellerslist"
-            element={[<AdminNav />, <SellersList url={url} />]}
-          />
-          <Route
-            path="/orderlist"
-            element={[<AdminNav />, <OrderList url={url} />]}
-          />
+          <Route path="/admin" element={[<AdminNav />, <AdminLogin />, <Foot />]} />
           <Route
             path="/userslist"
-            element={[<AdminNav />, <UserList url={url} />]}
+            element={[<AdminMainNav />, <UserList url={url} />, <Foot />]}
           />
           <Route
             path="/propertylist"
-            element={[<AdminNav />, <PropertiesList url={url} />]}
+            element={[<AdminMainNav />, <PropertiesList url={url} />, <Foot />]}
           />
 
           <Route path="/about" element={[<CommonNav />, <About />, <Foot />]} />
@@ -126,6 +120,8 @@ function App() {
           <Route path="/sellernav" element={<SellerNav url={url} />} />
           <Route path="/commonnav" element={<CommonNav />} />
           <Route path="/adminnav" element={<AdminNav />} />
+          <Route path="/adminmainnav" element={<AdminMainNav />} />
+
 
           {/* user */}
           <Route
@@ -145,6 +141,30 @@ function App() {
             element={[
               <UserNav url={url} />,
               <SellersList url={url} />,
+              <Foot />,
+            ]}
+          />
+          <Route
+            path="/sellerslist"
+            element={[
+              <AdminMainNav url={url} />,
+              <SellersList url={url} />,
+              <Foot />,
+            ]}
+          />
+           <Route
+            path="/adminproperty"
+            element={[
+              <AdminMainNav url={url} />,
+              <PropertyList url={url} />,
+              <Foot />,
+            ]}
+          />
+          <Route
+            path="/adminorderlist"
+            element={[
+              <AdminMainNav url={url} />,
+              <OrderList url={url} />,
               <Foot />,
             ]}
           />
@@ -265,7 +285,7 @@ function App() {
 
           <Route
             path="/adminDashboard"
-            element={[<AdminNav url={url} />, <AdminHome url={url}/>, <Foot />]}
+            element={[<AdminMainNav  url={url} />, <AdminHome url={url}/>, <Foot />]}
           />
 
         </Routes>

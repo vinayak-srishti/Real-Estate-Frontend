@@ -5,7 +5,7 @@ function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let mail = "admin";
+  let mail = "admin@gmail.com";
   let pass = "admin123";
 
   let navigate = useNavigate();

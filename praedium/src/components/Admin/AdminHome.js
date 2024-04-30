@@ -10,20 +10,18 @@ function AdminHome() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axiosInstance.post("/admin/getAllBuyers").then((responce) => {
+    axiosInstance.get("/admin/getAllBuyers").then((responce) => {
       setUsers(responce.data);
     });
-    axiosInstance.post("/admin/sellerListing").then((responce) => {
+    axiosInstance.get("/admin/sellerListing").then((responce) => {
       setSellers(responce.data);
     });
-    axiosInstance.post("/Seller/propertyListing").then((responce) => {
+    axiosInstance.get("/Seller/propertyListing").then((responce) => {
       setProperties(responce.data);
     });
-    axiosInstance.post("/message/orderListing").then((responce) => {
+    axiosInstance.get("/message/orderListing").then((responce) => {
       setOrders(responce.data);
     });
-   
-    
   }, []);
 
   return (
@@ -36,7 +34,7 @@ function AdminHome() {
             <Link>
               <div className="revenue__box">
                 <h5>Total Users</h5>
-                <span>1{users.length}</span>
+                <span>{users.length}</span>
               </div>
             </Link>
           </div>
@@ -44,7 +42,7 @@ function AdminHome() {
             <Link>
               <div className="order__box">
                 <h5>Total Sellers</h5>
-                <span>1</span>
+                <span>{sellers.length}</span>
               </div>
             </Link>
           </div>
@@ -52,7 +50,7 @@ function AdminHome() {
             <Link>
               <div className="products__box">
                 <h5>Total Properties</h5>
-                <span>1</span>
+                <span>{properties.length}</span>
               </div>
             </Link>
           </div>
@@ -60,7 +58,7 @@ function AdminHome() {
             <Link>
               <div className="user__box">
                 <h5>Total Orders</h5>
-                <span>1</span>
+                <span>{orders.length}</span>
               </div>
             </Link>
           </div>

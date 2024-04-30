@@ -31,6 +31,8 @@ function SellersList({url}) {
     <div className="container mt-5 pt-5" style={{height:'100vh'}}>
       {" "}
       {sellersListings && sellersListings.length > 0 ?
+      <div>       <h5 className="text-center pb-2">Seller list</h5>
+
         <Table striped bordered hover variant="light">
         <thead>
           <tr>
@@ -59,7 +61,7 @@ function SellersList({url}) {
           ))
         }
         </tbody>
-      </Table>
+      </Table></div>
       : "No sellers" 
       }
       

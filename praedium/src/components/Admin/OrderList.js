@@ -1,9 +1,73 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Table from "react-bootstrap/Table";
+import axiosInstance from "../../baseURL";
 
-function OrderList() {
+function OrderList({ url }) {
+  const [orderListings, setOrderlistings] = useState([]);
+
+  useEffect(() => {
+    async function fetchOrderListings() {
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        };
+        const response = await axiosInstance.get("/message/orderListing", config);
+        console.log(response);
+        setOrderlistings(response.data); // Update state with fetched data
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchOrderListings(); // Call the async function
+  }, []);
+
   return (
-    <div></div>
-  )
+    <div className="container mt-5 pt-5" style={{ height: "100vh" }}>
+      {" "}
+      {orderListings && orderListings.length > 0 ? (
+        <div><h5>Orders list</h5>
+        <Table striped bordered hover variant="light">
+          <thead>
+            <tr>
+              <th>profile</th>
+              <th>buyerName</th>
+              <th>sellerName</th>
+              <th>Property location</th>
+              <th>Property Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orderListings.map((items, index) => (
+              <tr>
+                <td>
+                  <img
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50px",
+                    }}
+                    src={`${url}${items.propertyImage}`}
+                  ></img>
+                </td>
+                <td>
+                  {items.buyerName}
+                </td>
+                <td>{items.sellerName}</td>
+                <td>{items.address}</td>
+                <td>{items.price}</td>
+               
+              </tr>
+            ))}
+          </tbody>
+        </Table></div>
+      ) : (
+        "No order available"
+      )}
+    </div>
+  );
 }
 
-export default OrderList
+export default OrderList;

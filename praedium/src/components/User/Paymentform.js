@@ -84,7 +84,8 @@ function Paymentform() {
     }
   };
   return (
-    <div>
+    <div style={{height:'100vh'}}>
+            <h5 className="text-center pb-2">place order</h5>
       <div className=" container mt-5 pt-5">
         <div className="row">
           <div className="col">

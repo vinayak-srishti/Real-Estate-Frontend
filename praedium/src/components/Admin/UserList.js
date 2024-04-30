@@ -27,10 +27,15 @@ function UserList({url}) {
     fetchusersListings(); // Call the async function
   }, []);
 
+
+
   return (
     <div className="container mt-5 pt-5" style={{height:'100vh'}}>
       {" "}
       {usersListings && usersListings.length > 0 ?
+      <div>
+                <h4>Buyer List</h4>
+
         <Table striped bordered hover variant="light">
         <thead>
           <tr>
@@ -59,8 +64,8 @@ function UserList({url}) {
           ))
         }
         </tbody>
-      </Table>
-      : "No users found" 
+      </Table></div>
+      : "No users available" 
       }
       
     </div>
