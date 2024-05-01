@@ -17,7 +17,7 @@ function Properties({url}) {
             "Content-Type": "multipart/form-data",
           }
         };
-        const response = await axiosInstance.get('Seller/propertyListing', config);
+        const response = await axiosInstance.get('Seller/bysellerid'+localStorage.getItem('sellerId'), config);
         console.log(response.data)
         setPropertyListings(response.data); // Update state with fetched data
       } catch (error) {
@@ -38,7 +38,8 @@ function Properties({url}) {
       {propertyListings.map((listing, index) => (
         <div class="col">
         <div class="card">
-          <img src={`${url}${listing.pic}`} class="card-img-top" alt="..."></img>
+          <img src={`${url}${listing.pic}`} class="card-img-top" alt="..."                 style={{width:'100%',height:'180px'}}
+          ></img>
           <div class="card-body">
             <h5 class="card-title">City name : {listing.city}</h5>
             <p class="card-text">Landmark : {listing.landmark }</p>

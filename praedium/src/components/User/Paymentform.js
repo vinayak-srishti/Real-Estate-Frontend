@@ -60,11 +60,10 @@ function Paymentform() {
               console.log("Error:", err);
               if (
                 err.response &&
-                err.response.data &&
-                err.response.data.message
+                err.response.data 
               ) {
                 document.getElementById("alertuser").innerHTML =
-                  err.response.data.message;
+                  err.response.data;
               } else {
                 document.getElementById("alertuser").innerHTML =
                   "An error occurred. Please try again.";

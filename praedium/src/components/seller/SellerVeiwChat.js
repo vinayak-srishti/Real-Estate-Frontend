@@ -31,6 +31,8 @@ const params = useParams();
     e.preventDefault();
     if (sendMsg.message){
         var res = await axiosInstance.post('/message',sendMsg)
+        document.getElementsByClassName("msger-input")[0].value = "";
+
     }
   };
 

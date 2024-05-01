@@ -47,7 +47,7 @@ function UserOrders({ url }) {
 
   return (
     <div className="mt-5 pt-5">
-      <div className=" container"  style={{height:'150vh'}}>
+      <div className=" container" style={{ height: "150vh" }}>
         {msg && msg.length > 0 ? (
           <div>
             <h3 className="text-center p-3">Orders</h3>
@@ -59,6 +59,7 @@ function UserOrders({ url }) {
                       src={`${url}${listing.pic}`}
                       class="card-img-top"
                       alt="..."
+                      style={{ width: "100%", height: "170px" }}
                     ></img>
                     <div class="card-body">
                       <h5 class="card-title">City name : {listing.city}</h5>
