@@ -34,9 +34,8 @@ function UserNav({ url }) {
         style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
       >
         <div class="container">
-          <a class="navbar-brand" href="/userhome">
-            Navbar w/ text
-          </a>
+          <a class="navbar-brand" href="/userhome" style={{fontFamily:'italic'}}>
+          <h4>RealEstate</h4>          </a>
           <button
             class="navbar-toggler"
             type="button"

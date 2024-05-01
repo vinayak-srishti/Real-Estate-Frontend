@@ -62,13 +62,13 @@ function UserOrders({ url }) {
                       style={{ width: "100%", height: "170px" }}
                     ></img>
                     <div class="card-body">
-                      <h5 class="card-title">City name : {listing.city}</h5>
-                      <p class="card-text">Landmark : {listing.landmark}</p>
-                      <p class="card-text">Area : {listing.area}</p>
-                      <p class="card-text">District : {listing.district}</p>
-                      <p class="card-text">Longitude : {listing.log}</p>
-                      <p class="card-text">Latitude : {listing.lat}</p>
-                      <p class="card-text">Amount : {listing.price}</p>
+                      <h6 class="card-title text-center">{listing.city}</h6>
+                      <div class="card-text"><small>Landmark : {listing.landmark}</small></div>
+                      <div class="card-text"><small>Area : {listing.area}</small></div>
+                      <div class="card-text"><small>District : {listing.district}</small></div>
+                      <div class="card-text"><small>Longitude : {listing.log}</small></div>
+                      <div class="card-text"><small>Latitude : {listing.lat}</small></div>
+                      <div class="card-text"><small>Amount : {listing.price}</small></div>
                     </div>
                     <div className="card text-center p-2">
                       <h6>Buyer Details</h6>
@@ -82,7 +82,7 @@ function UserOrders({ url }) {
             </div>
           </div>
         ) : (
-          "no orders found"
+          <h6 className="text-center">No Orders Found</h6>
         )}
       </div>
     </div>

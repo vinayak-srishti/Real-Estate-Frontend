@@ -154,7 +154,7 @@ function Seller_reg() {
         });
     } else {
       console.log("form is not valid", formValid);
-      alert("form is not valid", formValid);
+      alert("Please enter all the fields", formValid);
       console.log("data entered", vals);
     }
   };

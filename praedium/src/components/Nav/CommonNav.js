@@ -4,8 +4,8 @@ function CommonNav() {
     return (
         <div><nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm fixed-top" style={{boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Navbar w/ text</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<a class="navbar-brand" href="/" style={{fontFamily:'italic'}}>
+          <h4>RealEstate</h4>          </a>                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
@@ -20,9 +20,7 @@ function CommonNav() {
                         <li class="nav-item">
                             <Link  to="/terms" class="nav-link active" aria-current="page" href="#">Terms & condition</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link to="/feedback" class="nav-link active" aria-current="page" href="#">Feedback</Link>
-                        </li>
+                       
                         <li class="nav-item">
                             <Link to="/contact" class="nav-link active" aria-current="page" href="#">Contact Us</Link>
                         </li>
@@ -54,3 +52,6 @@ function CommonNav() {
 }
 
 export default CommonNav
+ // <li class="nav-item">
+                        //     <Link to="/feedback" class="nav-link active" aria-current="page" href="#">Feedback</Link>
+                        // </li>

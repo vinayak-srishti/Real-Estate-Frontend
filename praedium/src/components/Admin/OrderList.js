@@ -64,7 +64,7 @@ function OrderList({ url }) {
           </tbody>
         </Table></div>
       ) : (
-        "No order available"
+      <h6 className="text-center">No Order Available</h6>
       )}
     </div>
   );

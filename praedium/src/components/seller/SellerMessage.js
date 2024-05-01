@@ -77,7 +77,7 @@ function SellerMessage({url}) {
     </div>
       
       
-    </main>:'no messages found'}
+    </main>:<h6 className="text-center">No Messages Found</h6>}
     
   </section>
   

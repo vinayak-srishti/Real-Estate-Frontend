@@ -10,6 +10,8 @@ function Paymentform() {
   const [expirationDate, setExpirationDate] = useState("");
   const [CVV, setCVV] = useState("");
   const [property, setProperty] = useState("");
+  const [amount, setAmount] = useState("");
+
 
   const enteredDateObj = new Date(expirationDate);
   const currentDate = new Date();
@@ -84,7 +86,7 @@ function Paymentform() {
   };
   return (
     <div style={{height:'100vh'}}>
-            <h5 className="text-center pb-2">place order</h5>
+            <h5 className="text-center pb-2"> Property Booking</h5>
       <div className=" container mt-5 pt-5">
         <div className="row">
           <div className="col">
@@ -99,6 +101,18 @@ function Paymentform() {
                     placeholder="cardholdername"
                     value={cardholdername}
                     onChange={(e) => setCardholdername(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="amount"
+                    value={amount}
+                    required
+                    onChange={(e) => setAmount(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group
@@ -133,6 +147,7 @@ function Paymentform() {
                     onChange={(e) => setCVV(e.target.value)}
                   />
                 </Form.Group>
+                
                 <div id="alertuser"></div>
                 <div>
                   <button
@@ -140,7 +155,7 @@ function Paymentform() {
                     onClick={handlePayment}
                     className="btn btn-primary mb-2 p-1"
                   >
-                    proceed to payment
+                    proceed to Book
                   </button>{" "}
                 </div>
                 <div>

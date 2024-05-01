@@ -154,7 +154,7 @@ function Regis() {
         });
     } else {
       console.log("form is not valid", formValid);
-      alert("form is not valid", formValid);
+      alert("Please Enter all fields", formValid);
       console.log("data entered", vals);
     }
 

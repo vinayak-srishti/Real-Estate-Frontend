@@ -29,12 +29,12 @@ function Properties({url}) {
   }, []);
 
   return (
-    <div className=' container mt-5 pt-5' style={{height:'150vh'}}>
-      <div className='text-center m-5'><button className='btn btn-secondary'><Link className='text-light text-decoration-none' to="/addproperty"><AiFillPlusCircle/> Add A Property</Link> </button></div>
+    <div className=' container mt-5 pt-5' style={{height:'150vh' ,}}>
+      <div className='text-center m-5' ><button style={{float:'right'}} className='btn btn-secondary'><Link className='text-light text-decoration-none' to="/addproperty"><AiFillPlusCircle/> Add A Property</Link> </button></div>
       {propertyListings && propertyListings.length > 0 ?
       <div>
-<h4 className='pb-3'>my properties</h4>
-      <div class="row row-cols-1 row-cols-md-4 g-4">
+<h4 className='pb-3' >My Properties</h4>
+      <div  class="row row-cols-1 row-cols-md-4 g-4">
       {propertyListings.map((listing, index) => (
         <div class="col">
         <div class="card">
@@ -52,7 +52,7 @@ function Properties({url}) {
         </div>
       </div>
       ))}
-      </div></div>:' no property available'}</div>
+      </div></div>:<h6 className="text-center"> No Property Available</h6>}</div>
   )
 }
 

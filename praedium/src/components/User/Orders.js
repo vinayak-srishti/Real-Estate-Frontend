@@ -39,7 +39,7 @@ function Orders({url}) {
     <div className=' container mt-5 pt-5' style={{height:'100vh'}}>    
     {msg && msg.length > 0 ?
     <div>
-      <h5 className="text-center pb-2">My orders</h5>
+      <h5 className="text-center pb-2">My Orders</h5>
 
       <div class="row row-cols-1 row-cols-md-4 g-4">
       {msg.map((listing, index) => (
@@ -52,14 +52,12 @@ function Orders({url}) {
             <p class="card-text">Landmark : {listing.landmark }</p>
             <p class="card-text">Area : {listing.area }</p>
             <p class="card-text">District : {listing.district }</p>
-            <p class="card-text">Longitude : {listing.log }</p>
-            <p class="card-text">Latitude : {listing.lat }</p>
             <p class="card-text">Amount : {listing.price}/-</p>
           </div>
         </div>
       </div>
       ))}
-      </div></div>:' No orders found'}</div>
+      </div></div>:<h6 className="text-center">No Orders Found</h6>}</div>
   )
 }
 

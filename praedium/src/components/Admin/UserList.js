@@ -65,7 +65,7 @@ function UserList({url}) {
         }
         </tbody>
       </Table></div>
-      : "No users available" 
+      :<h6 className="text-center">No users available</h6>  
       }
       
     </div>
