@@ -68,7 +68,7 @@ function PropertyList({ url }) {
           </Table>
         </div>
       ) : (
-        "No properties available"
+        <h6 className="text-center">No properties available</h6>
       )}
     </div>
   );

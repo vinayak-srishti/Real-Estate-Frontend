@@ -48,6 +48,7 @@ import UserList from "./components/Admin/UserList.js";
 import AdminHome from "./components/Admin/AdminHome.js";
 import AdminMainNav from "./components/Nav/AdminMainNav.js";
 import PropertyList from "./components/Admin/PropertyList.js";
+import PropertyDetail from "./components/User/PropertyDetail.js";
 
 function App() {
   const url = "http://localhost:8081/";
@@ -287,6 +288,10 @@ function App() {
             path="/adminDashboard"
             element={[<AdminMainNav  url={url} />, <AdminHome url={url}/>, <Foot />]}
           />
+          <Route
+          path="/propetyDetail"
+          element={[<UserNav  url={url} />, <PropertyDetail url={url}/>, <Foot />]}
+        />
 
         </Routes>
       </div>

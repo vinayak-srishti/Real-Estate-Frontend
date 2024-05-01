@@ -15,10 +15,8 @@ function AdminMainNav() {
         style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
       >
         <div class="container">
-          <a class="navbar-brand" href="/adminDashboard">
-            Navbar w/ text
-          </a>
-          <button
+        <a class="navbar-brand" href="/adminDashboard" style={{fontFamily:'italic'}}>
+        <h4>RealEstate</h4>          </a>          <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"

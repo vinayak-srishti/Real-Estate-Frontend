@@ -21,7 +21,7 @@ function Terms() {
         </div>
         <div className="col-sm-6 col-md-9 g-4">
           <p>
-            This website 99acres.com , including any subdomains thereof, and any
+            This website  including any subdomains thereof, and any
             other websites through which its services are made available, our
             mobile, tablet and other smart device applications, and application
             program interfaces etc, , (hereinafter collectively referred to as

@@ -64,7 +64,7 @@ function PropertiesList({ url }) {
           </div>
         ))}
       </div>
-      : 'No properties found'
+      : <h6 className="text-center">No properties found</h6>
     }
       
     </div>

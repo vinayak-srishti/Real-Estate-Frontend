@@ -26,7 +26,7 @@ function Contactus() {
               </div>
               <div class="col">
                 <img src={Mail}/>
-                <p><a href="#" className='text-decoration-none'>services@99acres.com</a><br></br>(Sales & General Enquire)</p>
+                <p><br></br>(Sales & General Enquire)</p>
               </div>
               <div class="col">
                 <img src={Query}/>
