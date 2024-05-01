@@ -1,0 +1,24 @@
+/* .back{
+    background: linear-gradient(yellow,orange 50%,lightyellow);
+}  */
+.box {
+  margin-top: 80px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  height: 500px;
+  border-radius: 60px 0px 60px 0px;
+  background: linear-gradient(
+    rgba(255, 166, 0, 0.805),
+    rgba(255, 255, 0, 0.789)
+  );
+  opacity: 0.9;
+}
+.group {
+  margin-top: 40px;
+  padding: 60px;
+}
+/* .img{
+    background:red  url("../components/Images/Land.jpg");
+    background-size: cover;
+    height: 710px;
+}  */
