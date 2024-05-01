@@ -28,21 +28,21 @@ function PropertiesList({ url }) {
 
     fetchPropertyListings(); // Call the async function
   }, []);
-
-  const navigate=useNavigate()
-  const handleMessage=(id,sid)=>{
-    navigate(`/buyerPropertyBasedMessage/${id+'_'+sid}`)
-  }
-  const HandleOrder=(id,sid)=>{
-    navigate(`/payment/${id+'_'+sid}`)
-  }
+  // const navigate=useNavigate()
+  // useEffect(() => {
+  //   if (localStorage.getItem("admin") !== null) {
+  //     navigate("/propertylist");
+  //   } else {
+  //     navigate("/admin");
+  //   }
+  // }, []);
   return (
-    <div className=" container mt-5 pt-5" style={{height:'120vh'}}>
+    <div className=" container mt-5 pt-5">
     {propertyListings && propertyListings.length > 0 ?
       <div class="row row-cols-1 row-cols-md-4 g-4">
         {propertyListings.map((listing, index) => (
           <div class="col">
-            <div class="card">
+            <div class="card" style={{height:'80vh'}}>
               <img
                 src={`${url}${listing.pic}`}
                 class="card-img-top"
@@ -53,18 +53,14 @@ function PropertiesList({ url }) {
                 <h5 class="card-title">City name : {listing.city}</h5>
                 <p class="card-text">Landmark : {listing.landmark}</p>
                 <p class="card-text">Area : {listing.area}</p>
-                <p class="card-text">District : {listing.district}</p>
-                <p class="card-text">Longitude : {listing.log}</p>
-                <p class="card-text">Latitude : {listing.lat}</p>
-                <p class="card-text">Amount : {listing.price}</p>
-                <button onClick={()=>HandleOrder(listing.propertyId,listing.sellerId)} className="btn btn-primary">Order</button>
-                <button onClick={()=>handleMessage(listing.propertyId,listing.sellerId)} className="btn btn-primary ms-5">Message</button>
+                <p class="card-text">Amount : {listing.price}/-</p>
+                <button className="btn btn-primary"><Link to={`/propetyDetail/${listing.propertyId}` } className="text-light">View More</Link></button>
               </div>
             </div>
           </div>
         ))}
       </div>
-      : <h6 className="text-center">No properties found</h6>
+      : <h6 className="text-center">No Properties Found</h6>
     }
       
     </div>

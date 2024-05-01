@@ -25,7 +25,7 @@ function Paymentform() {
   useEffect(() => {
     async function fetchData() {
         var property = await axiosInstance
-        .get("/Seller/property" + productid, {
+        .get("/Seller/property/" + productid, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -36,6 +36,7 @@ function Paymentform() {
     fetchData()
       
   }, []);
+
 
   const handlePayment = async () => {
     if (cardholdername.length > 3) {
@@ -84,6 +85,13 @@ function Paymentform() {
       alert("enter cardholder name");
     }
   };
+  // useEffect(() => {
+  //   if (localStorage.getItem("userId") !== null) {
+  //     navigate("/payment/:");
+  //   } else {
+  //     navigate("/user_login");
+  //   }
+  // }, []);
   return (
     <div style={{height:'100vh'}}>
             <h5 className="text-center pb-2"> Property Booking</h5>
@@ -166,7 +174,7 @@ function Paymentform() {
                   >
                     <Link
                       className="text-dark text-decoration-none"
-                      to="/userhome"
+                      to="/propertieslist"
                     >
                       Cancel
                     </Link>

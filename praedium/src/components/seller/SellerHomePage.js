@@ -1,6 +1,17 @@
-import React from 'react'
-import './seller.css'
+import React,{useEffect} from 'react'
+import './seller.css';
+import { useNavigate } from 'react-router-dom';
+
 function SellerHomePage() {
+const navigate=useNavigate()
+
+  useEffect(() => {
+    if (localStorage.getItem("sellerId") !== null) {
+      navigate("/sellerhome");
+    } else {
+      navigate("/seller_login");
+    }
+  }, []);
   return (
     <div>
       <div className='sellerhomepageimg mt-5 pt-5 text-light'>

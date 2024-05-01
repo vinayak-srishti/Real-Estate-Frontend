@@ -289,7 +289,7 @@ function App() {
             element={[<AdminMainNav  url={url} />, <AdminHome url={url}/>, <Foot />]}
           />
           <Route
-          path="/propetyDetail"
+          path="/propetyDetail/:propertyId"
           element={[<UserNav  url={url} />, <PropertyDetail url={url}/>, <Foot />]}
         />
 

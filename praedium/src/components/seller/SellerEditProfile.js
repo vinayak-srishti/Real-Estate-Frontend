@@ -63,6 +63,14 @@ const navigate=useNavigate()
         })
 
     }
+    useEffect(() => {
+        if (localStorage.getItem("sellerId") !== null) {
+          navigate("/sellereditprofile/"+localStorage.getItem("sellerId"));
+        } else {
+          navigate("/seller_login");
+        }
+      }, []);
+      
     return (
         <div>
         <div style={{ marginTop: '90px', marginBottom: '90px' }}>

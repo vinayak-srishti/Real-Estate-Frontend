@@ -26,7 +26,7 @@ function SellerMessage({url}) {
                   },
                 });
                 var property = await axiosInstance
-                .get("/Seller/property" + res.data[i].propertyId, {
+                .get("/Seller/property/" + res.data[i].propertyId, {
                   headers: {
                     "Content-Type": "multipart/form-data",
                   },
@@ -42,8 +42,16 @@ function SellerMessage({url}) {
     },[])
     console.log(msg);
 
+    useEffect(() => {
+      if (localStorage.getItem("sellerId") !== null) {
+        navigate("/sellermessage");
+      } else {
+        navigate("/seller_login");
+      }
+    }, []);
+
     return (
-      <section className="container mt-5 pt-5" style={{height:'100vh'}}>
+      <section className="container mt-5 pt-5" >
     {/* <header className="msger-header">
       <div className="msger-header-title">
         <i className="fas fa-comment-alt" /> 

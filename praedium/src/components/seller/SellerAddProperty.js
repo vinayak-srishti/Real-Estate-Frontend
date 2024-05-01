@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import axiosInstance from '../../baseURL'
 
@@ -48,6 +48,13 @@ function SellerAddProperty() {
         })
     }
 
+    useEffect(() => {
+        if (localStorage.getItem("sellerId") !== null) {
+          navigate("/addproperty");
+        } else {
+          navigate("/seller_login");
+        }
+      }, []);
     return (
         <div className='container mt-5 pt-5'>
             <div className="" style={{ backgroundColor: 'whitesmoke', padding: '4% ' ,boxshadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;'}}>

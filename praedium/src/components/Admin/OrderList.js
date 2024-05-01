@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import axiosInstance from "../../baseURL";
-
+import { useNavigate } from "react-router-dom";
 function OrderList({ url }) {
   const [orderListings, setOrderlistings] = useState([]);
 
@@ -24,6 +24,15 @@ function OrderList({ url }) {
     fetchOrderListings(); // Call the async function
   }, []);
 
+  const navigate=useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem("admin") !== null) {
+      navigate("/adminorderlist");
+    } else {
+      navigate("/admin");
+    }
+  }, []);
+
   return (
     <div className="container mt-5 pt-5" style={{ height: "100vh" }}>
       {" "}
@@ -32,9 +41,9 @@ function OrderList({ url }) {
         <Table striped bordered hover variant="light">
           <thead>
             <tr>
-              <th>profile</th>
-              <th>buyerName</th>
-              <th>sellerName</th>
+              <th>Property</th>
+              <th>BuyerName</th>
+              <th>SellerName</th>
               <th>Property location</th>
               <th>Property Price</th>
             </tr>
