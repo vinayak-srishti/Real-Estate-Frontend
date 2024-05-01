@@ -37,7 +37,7 @@ function PropertiesList({ url }) {
     navigate(`/payment/${id+'_'+sid}`)
   }
   return (
-    <div className=" container mt-5 pt-5" style={{height:'100vh'}}>
+    <div className=" container mt-5 pt-5" style={{height:'120vh'}}>
     {propertyListings && propertyListings.length > 0 ?
       <div class="row row-cols-1 row-cols-md-4 g-4">
         {propertyListings.map((listing, index) => (
@@ -47,6 +47,7 @@ function PropertiesList({ url }) {
                 src={`${url}${listing.pic}`}
                 class="card-img-top"
                 alt="..."
+                style={{width:'100%',height:'180px'}}
               ></img>
               <div class="card-body">
                 <h5 class="card-title">City name : {listing.city}</h5>
