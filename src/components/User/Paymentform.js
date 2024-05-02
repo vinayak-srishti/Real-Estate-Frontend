@@ -25,7 +25,7 @@ function Paymentform() {
   useEffect(() => {
     async function fetchData() {
         var property = await axiosInstance
-        .get("/Seller/property" + productid, {
+        .get("/Seller/property/" + productid, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -166,8 +166,7 @@ function Paymentform() {
                   >
                     <Link
                       className="text-dark text-decoration-none"
-                      to="/userhome"
-                    >
+                      to="/propertieslist"                    >
                       Cancel
                     </Link>
                   </button>{" "}

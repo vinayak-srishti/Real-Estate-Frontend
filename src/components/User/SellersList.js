@@ -28,7 +28,7 @@ function SellersList({url}) {
   }, []);
 
   return (
-    <div className="container mt-5 pt-5" style={{height:'100vh'}}>
+    <div className="container mt-5 pt-5" >
       {" "}
       {sellersListings && sellersListings.length > 0 ?
       <div>       <h5 className="text-center pb-2">Sellers List</h5>

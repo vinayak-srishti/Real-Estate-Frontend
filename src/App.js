@@ -75,7 +75,10 @@ function App() {
           {/* <Route path='/Owl' element={<Owlcarsol/>}/> */}
           {/* <Route path='/whole' element={[<CommonNav />, <Owlcarsol />, <Body />, <Foot />]} /> */}
 
-          <Route path="/admin" element={[<AdminNav />, <AdminLogin />, <Foot />]} />
+          <Route
+            path="/admin"
+            element={[<AdminNav />, <AdminLogin />, <Foot />]}
+          />
           <Route
             path="/userslist"
             element={[<AdminMainNav />, <UserList url={url} />, <Foot />]}
@@ -123,7 +126,6 @@ function App() {
           <Route path="/adminnav" element={<AdminNav />} />
           <Route path="/adminmainnav" element={<AdminMainNav />} />
 
-
           {/* user */}
           <Route
             path="/userprofile"
@@ -153,7 +155,7 @@ function App() {
               <Foot />,
             ]}
           />
-           <Route
+          <Route
             path="/adminproperty"
             element={[
               <AdminMainNav url={url} />,
@@ -286,13 +288,20 @@ function App() {
 
           <Route
             path="/adminDashboard"
-            element={[<AdminMainNav  url={url} />, <AdminHome url={url}/>, <Foot />]}
+            element={[
+              <AdminMainNav url={url} />,
+              <AdminHome url={url} />,
+              <Foot />,
+            ]}
           />
           <Route
-          path="/propetyDetail"
-          element={[<UserNav  url={url} />, <PropertyDetail url={url}/>, <Foot />]}
-        />
-
+            path="/propetyDetail/:propertyId"
+            element={[
+              <UserNav url={url} />,
+              <PropertyDetail url={url} />,
+              <Foot />,
+            ]}
+          />
         </Routes>
       </div>
     </BrowserRouter>

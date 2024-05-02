@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import axiosInstance from "../../baseURL";
+import { useNavigate } from "react-router-dom";
 
 function PropertyList({ url }) {
   const [propertyListings, setPropertylistings] = useState([]);
@@ -14,10 +15,18 @@ function PropertyList({ url }) {
           },
         };
         const response = await axiosInstance.get(
-          "Seller/propertyListing",
+           "Seller/viewAllProperties",
           config
         );
         console.log(response);
+        for( var i in response.data){
+          if(response.data[i].status == "pending"){
+            response.data[i].color='green'
+          }
+          else{
+            response.data[i].color='red'
+          }
+        }
         setPropertylistings(response.data); // Update state with fetched data
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -27,6 +36,15 @@ function PropertyList({ url }) {
     fetchusersListings(); // Call the async function
   }, []);
 
+  const navigate=useNavigate()
+
+  useEffect(() => {
+    if (localStorage.getItem("admin") !== null) {
+      navigate("/adminproperty");
+    } else {
+      navigate("/admin");
+    }
+  }, []);
   return (
     <div className="container mt-5 pt-5" style={{ height: "100vh" }}>
       {" "}
@@ -42,6 +60,13 @@ function PropertyList({ url }) {
                 <th>district</th>
                 <th>city</th>
                 <th>features</th>
+                <th>Property</th>
+                <th>SellerName</th>
+                <th>Price</th>
+                <th>District</th>
+                <th>City</th>
+                <th>Features</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -62,6 +87,7 @@ function PropertyList({ url }) {
                   <td>{items.district}</td>
                   <td>{items.city}</td>
                   <td>{items.features}</td>
+                  <td ><button className="btn text-light" style={{backgroundColor:items.color}}>{items.status}</button></td>
                 </tr>
               ))}
             </tbody>

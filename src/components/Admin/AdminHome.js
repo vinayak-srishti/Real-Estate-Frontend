@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./AdminHome.css";
 import axiosInstance from "../../baseURL";
 
@@ -22,6 +22,16 @@ function AdminHome() {
     axiosInstance.get("/message/orderListing").then((responce) => {
       setOrders(responce.data);
     });
+  }, []);
+
+  
+  const navigate=useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem("admin") !== null) {
+      navigate("/adminDashboard");
+    } else {
+      navigate("/admin");
+    }
   }, []);
 
   return (

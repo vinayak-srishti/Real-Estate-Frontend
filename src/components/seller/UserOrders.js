@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../baseURL";
+import { useNavigate } from "react-router-dom";
 
 function UserOrders({ url }) {
   const [msg, setMsg] = useState([]);
@@ -16,7 +17,7 @@ function UserOrders({ url }) {
       for (var i in data.data) {
         if (data.data[i].sellerId == localStorage.getItem("sellerId")) {
           var property = await axiosInstance.get(
-            "/Seller/property" + data.data[i].propertyId,
+            "/Seller/property/" + data.data[i].propertyId,
             {
               headers: {
                 "Content-Type": "multipart/form-data",
@@ -45,16 +46,25 @@ function UserOrders({ url }) {
     fetchData();
   }, []);
 
+  const navigate=useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem("sellerId") !== null) {
+      navigate("/sellerorder");
+    } else {
+      navigate("/seller_login");
+    }
+  }, []);
+
   return (
     <div className="mt-5 pt-5">
-      <div className=" container" style={{ height: "150vh" }}>
+    <div className=" container">
         {msg && msg.length > 0 ? (
           <div>
             <h3 className="text-center p-3">Orders</h3>
             <div class="row row-cols-1 row-cols-md-4 g-4">
               {msg.map((listing, index) => (
                 <div class="col">
-                  <div class="card">
+                  <div class="card" style={{height:'90vh'}}>
                     <img
                       src={`${url}${listing.pic}`}
                       class="card-img-top"

@@ -32,8 +32,8 @@ function CommonNav() {
                             Login
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="User_login">Buyer login</a></li>
-                            <li><a class="dropdown-item" href="seller_login">Seller login</a></li>
+                        <li><a class="dropdown-item" href="User_login">Buyer</a></li>
+                            <li><a class="dropdown-item" href="seller_login">Seller</a></li>
                         </ul>
                     </div>
                     <div class="dropdown" style={{ marginRight: '50px' }}>
@@ -41,8 +41,8 @@ function CommonNav() {
                             Register
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="reg">Buyer Register</a></li>
-                            <li><a class="dropdown-item" href="seller_reg">Seller Register</a></li>
+                        <li><a class="dropdown-item" href="reg">Buyer</a></li>
+                            <li><a class="dropdown-item" href="seller_reg">Seller</a></li>
                         </ul>
                     </div>
                 </div>

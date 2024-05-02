@@ -26,7 +26,14 @@ function UserProfile({ url }) {
         console.log(err);
       });
   }, []);
-
+  
+  useEffect(() => {
+    if (localStorage.getItem("sellerId") !== null) {
+      navigate("/UserProfile");
+    } else {
+      navigate("/seller_login");
+    }
+  }, []);
   return (
     <div className="p-5 mt-5">
       <div className="container mt-5 pt-5">

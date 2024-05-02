@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import axiosInstance from "../../baseURL";
+import { useNavigate } from "react-router-dom";
 
 function UserList({url}) {
   const [usersListings, setUserslistings] = useState([]);
@@ -27,7 +28,14 @@ function UserList({url}) {
     fetchusersListings(); // Call the async function
   }, []);
 
-
+  const navigate=useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem("admin") !== null) {
+      navigate("/userslist");
+    } else {
+      navigate("/admin");
+    }
+  }, []);
 
   return (
     <div className="container mt-5 pt-5" style={{height:'100vh'}}>

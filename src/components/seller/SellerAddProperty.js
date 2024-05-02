@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import {  useNavigate } from 'react-router-dom'
+import React, { useState,useEffect } from 'react'
 import axiosInstance from '../../baseURL'
-
+import { useNavigate } from 'react-router-dom'
 
 
 function SellerAddProperty() {
@@ -47,6 +46,15 @@ function SellerAddProperty() {
             alert("unable to add plese enter valid information")
         })
     }
+
+    
+    useEffect(() => {
+        if (localStorage.getItem("sellerId") !== null) {
+          navigate("/addproperty");
+        } else {
+          navigate("/seller_login");
+        }
+      }, []);
 
     return (
         <div className='container mt-5 pt-5'>
