@@ -54,12 +54,6 @@ function PropertyList({ url }) {
           <Table striped bordered hover variant="light">
             <thead>
               <tr>
-                <th>profile</th>
-                <th>sellerName</th>
-                <th>price</th>
-                <th>district</th>
-                <th>city</th>
-                <th>features</th>
                 <th>Property</th>
                 <th>SellerName</th>
                 <th>Price</th>
@@ -82,7 +76,7 @@ function PropertyList({ url }) {
                       src={`${url}${items.pic}`}
                     ></img>
                   </td>
-                  <td>{items.sellerName}</td>
+                  <td>{items.sellername}</td>
                   <td>{items.price}</td>
                   <td>{items.district}</td>
                   <td>{items.city}</td>
